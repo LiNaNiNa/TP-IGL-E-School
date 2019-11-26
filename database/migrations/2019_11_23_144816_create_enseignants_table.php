@@ -14,10 +14,9 @@ class CreateEnseignantsTable extends Migration
     public function up()
     {
         Schema::create('enseignants', function (Blueprint $table) {
-            $table->bigIncrements('Code_Ens');
+            $table->Integer('Enseignant_id')->primary();
             $table->String('Nom',120);
             $table->String('Prenom',120);
-            $table->String('username',120);
             $table->timestamps();
         });
     }

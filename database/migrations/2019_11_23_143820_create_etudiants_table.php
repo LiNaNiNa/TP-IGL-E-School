@@ -14,14 +14,12 @@ class CreateEtudiantsTable extends Migration
     public function up()
     {
         Schema::create('etudiants', function (Blueprint $table) {
-            $table->bigIncrements('Code_Etud');
-            $table->String('Matricule',120);
+            $table->Integer('Etudiant_id')->primary();
             $table->String('Nom',120);
             $table->String('Prenom',120);
             $table->String('Promo',10);
             $table->String('Sect',1);
             $table->integer('Gr');
-            $table->String('username',120);
             $table->timestamps();
         });
     }

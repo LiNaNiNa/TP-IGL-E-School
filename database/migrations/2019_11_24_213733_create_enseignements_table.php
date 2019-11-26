@@ -14,7 +14,7 @@ class CreateEnseignementsTable extends Migration
     public function up()
     {
         Schema::create('enseignements', function (Blueprint $table) {
-            $table->Integer('Code_Ens');
+            $table->Integer('Enseignant_id')->primary();
             $table->String('Code_Mat',10);
             $table->String('Sect',1);
             $table->integer('Gr');

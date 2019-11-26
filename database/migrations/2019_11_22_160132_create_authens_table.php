@@ -14,6 +14,7 @@ class CreateAuthensTable extends Migration
     public function up()
     {
         Schema::create('authens', function (Blueprint $table) {
+            $table->Integer('Matricule')->primary();
             $table->String('username',120);
             $table->String('password',120);
             $table->String('Profil',50);

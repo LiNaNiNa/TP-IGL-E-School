@@ -17,9 +17,6 @@ class CreateEtudiantsTable extends Migration
             $table->Integer('Etudiant_id')->primary();
             $table->String('Nom',120);
             $table->String('Prenom',120);
-            $table->String('Promo',10);
-            $table->String('Sect',1);
-            $table->integer('Gr');
             $table->timestamps();
         });
     }

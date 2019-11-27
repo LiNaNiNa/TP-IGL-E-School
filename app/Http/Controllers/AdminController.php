@@ -14,9 +14,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($choix)
     {
-        return view('admin');
+        return view($choix);
     }
     
     /**
@@ -25,37 +25,53 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeEtud(Request $request)
     {
         $auth = new Authen();
-        $nom = $request->input('Nom');
-        $prenom = $request->input('Prenom');
+        $nom = $request->input('NomEtu');
+        $prenom = $request->input('PrenomEtu');
+        $dn = $request->input('Date');
+        $promo = $request->input('Promo');
+        $section = $request->input('Sect');
+        $groupe = $request->input('Gr');
         $auth->username = $prenom[0]."_".$nom;
         $auth->password = $nom;
-        if ($request->profil = 'Etudiant')
-        {
-            $auth->profil = 'Etudiant';
-        }elseif($request->profil = 'Enseignant'){
-            $auth->profil = 'Enseignant';
-        }
+        $auth->profil = 'Etudiant';
         $auth->save();
 
         $data = Authen::where('username',$prenom[0]."_".$nom)->where('password',$nom)->get();
         $mat=$data[0]->Matricule;
-        if ($request->profil = 'Etudiant')
-        {
-            $etud = new Etudiant();
-            $etud->Etudiant_id = $mat;
-            $etud->Nom = $nom;
-            $etud->Prenom = $prenom;
-            $etud->save();
-        }elseif($request->profil = 'Enseignant'){
-            $ens = new Enseignant();
-            $ens->Enseignant_id = $mat;
-            $ens->Nom = $nom;
-            $ens->Prenom = $prenom;
-            $ens->save();
-        }
-        return redirect('/home');
+
+        $etud = new Etudiant();
+        $etud->Etudiant_id = $mat;
+        $etud->Nom = $nom;
+        $etud->Prenom = $prenom;
+        $etud->Date_Naissance = $dn;
+        $etud->Promo = $promo;
+        $etud->Section = $section;
+        $etud->Groupe = $groupe;
+        $etud->save();
+        return redirect('/home/inscritEtud');
+    }
+    
+    public function storeEns (Request $request)
+    {
+        $auth = new Authen();
+        $nom = $request->input('NomEns');
+        $prenom = $request->input('PrenomEns');
+        $auth->username = $prenom[0]."_".$nom;
+        $auth->password = $nom;
+        $auth->profil = 'Enseignant';
+        $auth->save();
+
+        $data = Authen::where('username',$prenom[0]."_".$nom)->where('password',$nom)->get();
+        $mat=$data[0]->Matricule;
+
+        $ens = new Enseignant();
+        $ens->Enseignant_id = $mat;
+        $ens->Nom = $nom;
+        $ens->Prenom = $prenom;
+        $ens->save();
+        return redirect('/home/admin');
     }
 }

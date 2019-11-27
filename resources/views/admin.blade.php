@@ -9,15 +9,11 @@
 <body>
     <form action="#" method="POST">
         @csrf
-        <div><label for="Nom">Nom : </label>
-            <input name="Nom" id="Nom" type="text">
+        <div><label for="NomEns">Nom : </label>
+            <input name="NomEns" id="NomEns" type="text">
         </div>
-        <div><label for="Prenom">Prenom : </label>
-            <input name="Prenom" id="Prenom" type="text">
-        </div>
-        <div>
-            Etudiant<input name="Profil" id="Etudiant" type="radio" value="Etudiant">
-            Enseignant<input name="Profil" id="Enseignant" type="radio" value="Enseignant">
+        <div><label for="PrenomEns">Prenom : </label>
+            <input name="PrenomEns" id="PrenomEns" type="text">
         </div>
         <button type="submit">Ajouter</button>
     </form>

@@ -27,6 +27,15 @@ class AdminController extends Controller
      */
     public function storeEtud(Request $request)
     {
+        $validatedDate = $request->validate([
+            'NomEtudiant' => 'required|min:4|max:120',
+            'PrenomEtudiant' => 'required|min:4|max:120',
+            'Date' => 'required',
+            'Promo' => 'required|min:3|max:10',
+            'Section' => 'required|min:1|max:2',
+            'Groupe' => 'required'
+        ]);
+
         $auth = new Authen();
         $nom = $request->input('NomEtu');
         $prenom = $request->input('PrenomEtu');
@@ -56,6 +65,11 @@ class AdminController extends Controller
     
     public function storeEns (Request $request)
     {
+        $ValidatedData = $request->validate([
+            'NomEnseignant' => 'required|min:4|max:120',
+            'PrenomEnseignant' => 'required|min:4|max:120'
+        ]);
+
         $auth = new Authen();
         $nom = $request->input('NomEns');
         $prenom = $request->input('PrenomEns');

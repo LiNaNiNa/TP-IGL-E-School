@@ -10,30 +10,38 @@
         <form action="#" method="POST">
             @csrf
                 <div>
-                    <label for="NomEtu">Nom : </label>
-                    <input name="NomEtu" id="NomEtu" type="text">
+                    <label for="NomEtudiant">Nom : </label>
+                    <input name="NomEtudiant" required id="NomEtudiant" type="text">
                 </div>
                 <div>
-                    <label for="PrenomEtu">Prenom : </label>
-                    <input name="PrenomEtu" id="PrenomEtu" type="text">
+                    <label for="PrenomEtudiant">Prenom : </label>
+                    <input name="PrenomEtudiant" required id="PrenomEtudiant" type="text">
                 </div>
                 <div>
                     <label for="Date">Date Naissance : </label>
-                    <input name="Date" id="Date" type="text">
+                    <input name="Date" required id="Date" type="Date">
                 </div>
                 <div>
                         <label for="Promo">Promo : </label>
-                        <input name="Promo" id="Promo" type="text">
+                        <input name="Promo" required id="Promo" type="text">
                     </div>
                 <div>
-                    <label for="Sect">Section : </label>
-                    <input name="Sect" id="Sect" type="text">
+                    <label for="Section">Section : </label>
+                    <input name="Section" required id="Section" type="text">
                 </div>
                 <div>
-                    <label for="Gr">Groupe : </label>
-                    <input name="Gr" id="Gr" type="text">
+                    <label for="Groupe">Groupe : </label>
+                    <input name="Groupe" required id="Groupe" type="text">
                 </div>
                 <button type="submit">Ajouter</button>
             </form>
+            @if ($errors->any())
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>    
+            @endif
+            
 </body>
 </html>

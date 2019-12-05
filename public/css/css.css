@@ -1,0 +1,163 @@
+
+      
+html,
+body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    
+}
+.cww{
+    padding: 12px;
+    margin-top: 12px;;
+}
+.btn2 {
+    background-color:  #D85B5B;
+    border: 1px solid  #D85B5B;
+    margin-top:10%;
+    font-size: 20px;
+ 
+    color: white;
+    border-radius: 10px;
+
+
+}
+
+.btn2:hover {
+    color: #D85B5B;;
+    background-color: transparent;
+    border: 1px solid  #D85B5B;
+
+}
+.inputstyle{
+    border-radius: 4px;
+    padding: 6px;
+    --primary:  #D85B5B;
+   
+    
+}
+.navbargs{
+    background-color:#D85B5B;  
+}
+.nav-link{
+    color: rgb(230, 230, 230);
+}
+.nav-link:hover{
+    color:white;
+}
+.logo{
+    color: rgb(230, 230, 230);
+}
+.logo:hover{
+    color: white;
+}
+.inputstyle:focus{
+    outline:none ;
+  
+        }
+.login{
+   
+    background-color:white;
+    width: 430px;;
+    height: 600px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    
+    padding: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+	box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+}
+
+
+.up {
+    background-color: #D85B5B;
+    
+}
+
+
+.tw {
+    font-weight: bold;
+    color: rgb(230, 230, 230);
+}
+
+.tx {
+    font-weight: bold;
+    color: black;
+
+
+
+}
+
+.cw {
+    color: rgb(230, 230, 230);
+}
+
+.decription {
+    padding-left: 10px;
+    font-size: 30px;
+    color: rgb(230, 230, 230);
+    margin-top: 3%;
+    text-justify: auto;
+
+}
+
+.btnl {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid #D85B5B;
+    margin-top: 6%;
+    margin-left: 10px;
+    width: 50%;
+    font-size: 30px;
+    padding: 10px;
+    color: #D85B5B;
+    border-radius: 10px;
+
+
+}
+
+.btnl:hover {
+    color: rgb(230, 230, 230);
+    background-color: transparent;
+    border: 1px solid rgb(230, 230, 230);
+
+}
+
+.hu {
+    margin-top: 10%;
+}
+.closemg{
+    cursor: pointer;
+}
+
+footer {
+    background-color: #D85B5B;
+
+}
+.opacitybody{
+    filter : blur(2px);
+  }
+.btnf {
+    border: 1px solid rgb(230, 230, 230);
+    color: rgb(230, 230, 230);
+    border-radius: 10px;
+    background-color: #D85B5B;
+}
+
+
+.btnf:hover {
+    background-color: rgb(230, 230, 230);
+    color: #D85B5B;
+
+
+}

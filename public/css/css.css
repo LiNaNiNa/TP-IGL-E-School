@@ -27,6 +27,10 @@ body {
 
 }
 
+.lierror{
+   color: red;
+}
+
 .btn2:hover {
     color: #D85B5B;;
     background-color: transparent;

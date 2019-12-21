@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Compte;
 
 class AuthenController extends Controller
 {
@@ -13,7 +14,7 @@ class AuthenController extends Controller
      */
     public function index()
     {
-        //
+        return view('login');
     }
 
     /**
@@ -35,8 +36,10 @@ class AuthenController extends Controller
     public function store(Request $request)
     {
         $compte = new Compte();
-        $count=$compte->where('username',$request->input('username'))->where('password',$request->input('password'))->count();
-        dd($count);
+        $count=$compte->where('username',$request->get('name'))->where('password',$request->get('pass'))->count();
+    
+        return response()->json($count);
+      
     }
 
     /**

@@ -81672,7 +81672,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Contact us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "cw pl-2"
       }, "Question ? We\u2019ve got answers", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " try us."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn-block btnf "
+        className: "btn-block btnf p-2 "
       }, "Email us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81787,7 +81787,15 @@ function (_Component) {
       axios.post('/api/setlogin', this.state).then(function (response) {
         if (response.data == 0) {
           _this2.setState({
-            msg: 'check ur password or usename'
+            msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "alert alert-danger "
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Warning !"), " username OR password is Incorrect .")
+          });
+        } else {
+          _this2.setState({
+            msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              "class": "alert alert-success"
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Success !"), " Correct .")
           });
         }
       }).then(function (error) {
@@ -81799,40 +81807,37 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handlesub.bind(this)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
-        className: "lierror"
-      }, this.state.msg)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "exampleInputEmail1"
-      }, "UserName"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, this.state.msg, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3 mt-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-user p-2"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "username",
         type: "name",
-        className: "form-control",
-        id: "exampleInputEmail1",
+        className: "form-control p-4 ",
         "aria-describedby": "emailHelp",
+        placeholder: "username",
         onChange: this.changeuser.bind(this)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "exampleInputPassword1"
-      }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "input-group mb-3 mt-4 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-key  p-2"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         name: "password",
         type: "password",
-        className: "form-control",
-        id: "exampleInputPassword1",
+        className: "form-control p-4 ",
+        placeholder: "password",
         onChange: this.changepass.bind(this)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group form-check"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "checkbox",
-        className: "form-check-input",
-        id: "exampleCheck1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "form-check-label",
-        htmlFor: "exampleCheck1"
-      }, "Remembre Me ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "p-2 btn2 btn-block"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "p-2 btn2 btn-block p-2 mb-4"
       }, "Login"));
     }
   }]);
@@ -81912,7 +81917,7 @@ function (_Component) {
         className: "decription animated shake"
       }, "gestion de scolarite est une application web qui permetre aux etudiant ,enseignent et adminstrateur des ecloes de gerer leur ecole."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "btnlog",
-        className: "btnl animated swing "
+        className: "btnl  glow-on-hover animated swing "
       }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -81989,7 +81994,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
         expand: "lg",
         variant: "dark",
-        className: "navbargs px-4"
+        className: "navbargs p-4 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
         href: "#home"
       }, "ISchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
@@ -81998,16 +82003,11 @@ function (_Component) {
         id: "basic-navbar-nav",
         className: "justify-content-end"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
-        className: "pr-3",
-        href: "#home"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-home mr-2"
-      }), "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+        className: "pr-3"
+      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
         className: "nav-link",
         href: "#Contact"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-id-badge mr-2"
-      }), "Contact"))));
+      }, "Contact"))));
     }
   }]);
 

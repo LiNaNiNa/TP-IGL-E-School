@@ -14,15 +14,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <script>
+    
         $(document).ready(function () {
-            $(".login").addClass("animated");
-            @if ($errors -> any())
-                $("#bodyHome").addClass("opacitybody");
-            $(".login").show();
-            @else
-            $(".login").hide();
-            @endif
 
+           
+            
+            $(".login").addClass("animated");
+           
+            $(".login").hide();
+            
             $("#btnlog").click(function () {
                 $(".login").removeClass("bounceOutLeft");
                 $("#bodyHome").addClass("opacitybody");
@@ -42,7 +42,7 @@
 </head>
 
 <body>
-    <div id="bodyHome">
+    <div id="bodyHome" >
         <div id="menu"></div>
         <div id="jumbotron"></div>
         <div class="container mt-5">
@@ -58,23 +58,17 @@
     <!---  Login    -->
 
 
-    <div class="login " id="displayelem">
-        <img src="img/delete.png" class="img-fluid closemg " style="width: 20px; height: 20px; float: right; " />
-        <div style="margin-top: 30px;">
-            <center> <img src="img/user.png" class="img-fluid " style="width: 80px; height: 80px;" /></center>
-            <h3 align="center" class="cww">Sign in</h3>
-        </div>
         <div class="login " id="displayelem">
 
             <img src="img/delete.png" class="img-fluid closemg " style="width: 20px; height: 20px; float: right; " />
             <div style="margin-top: 30px;">
-                <center> <img src="img/user.png" class="img-fluid " style="width: 80px; height: 80px;" /></center>
+                <center class="pt-4"> <img src="img/user.png" class="img-fluid " style="width: 80px; height: 80px;" /></center>
                 <h3 align="center" class="cww">Sign in</h3>
                 <div id="form"></div>
                 <script type="text/javascript" src="/js/app.js"></script>
             </div>
         </div>
-    </div>          
+            
             <script type="text/javascript" src="/js/app.js"></script>
 </body>
 

@@ -17,3 +17,7 @@ require('./components/Jumbotron');
 require('./components/Slide');
 require('./components/Footer');
 require('./components/Formlg');
+
+
+
+

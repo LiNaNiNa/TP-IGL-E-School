@@ -26,23 +26,23 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeEtud(Request $request)
-    {
+    {/*
         $validatedDate = $request->validate([
-            'NomEtudiant' => 'required|min:4|max:120',
+            'NomEtudiant' => 'required|min:3|max:120',
             'PrenomEtudiant' => 'required|min:4|max:120',
             'Date' => 'required',
             'Promo' => 'required|min:3|max:10',
             'Section' => 'required|min:1|max:2',
             'Groupe' => 'required'
-        ]);
+        ]);*/
 
         $auth = new Authen();
-        $nom = $request->input('NomEtu');
-        $prenom = $request->input('PrenomEtu');
-        $dn = $request->input('Date');
-        $promo = $request->input('Promo');
-        $section = $request->input('Sect');
-        $groupe = $request->input('Gr');
+        $nom = $request->get('NomEtu');
+        $prenom = $request->get('PrenomEtu');
+        $dn = $request->get('Date');
+        $promo = $request->get('Promo');
+        $section = $request->get('Sect');
+        $groupe = $request->get('Gr');
         $auth->username = $prenom[0]."_".$nom;
         $auth->password = $nom;
         $auth->profil = 'Etudiant';
@@ -60,7 +60,10 @@ class AdminController extends Controller
         $etud->Section = $section;
         $etud->Groupe = $groupe;
         $etud->save();
-        return redirect('/home/inscritEtud');
+
+        echo($etud);
+        //return redirect('/home/inscritEtud');
+        return(response()->json(0));  
     }
     
     public function storeEns (Request $request)

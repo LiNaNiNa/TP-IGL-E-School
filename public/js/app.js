@@ -3413,7 +3413,7 @@ function transitionEnd(element, handler, duration) {
 /*!************************************************!*\
   !*** ./node_modules/formik/dist/formik.esm.js ***!
   \************************************************/
-/*! exports provided: ErrorMessage, FastField, Field, FieldArray, Form, Formik, FormikConsumer, FormikContext, FormikProvider, connect, getActiveElement, getIn, insert, isEmptyChildren, isFunction, isInputEvent, isInteger, isNaN, isObject, isPromise, isString, move, prepareDataForValidation, replace, setIn, setNestedObjectValues, swap, useField, useFormik, useFormikContext, validateYupSchema, withFormik, yupToFormErrors */
+/*! exports provided: ErrorMessage, FastField, Field, FieldArray, Form, Formik, FormikConsumer, FormikContext, FormikProvider, connect, getActiveElement, getIn, insert, isEmptyArray, isEmptyChildren, isFunction, isInputEvent, isInteger, isNaN, isObject, isPromise, isString, move, prepareDataForValidation, replace, setIn, setNestedObjectValues, swap, useField, useFormik, useFormikContext, validateYupSchema, withFormik, yupToFormErrors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3431,6 +3431,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getActiveElement", function() { return getActiveElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getIn", function() { return getIn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "insert", function() { return insert; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEmptyArray", function() { return isEmptyArray; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEmptyChildren", function() { return isEmptyChildren; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isFunction", function() { return isFunction; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isInputEvent", function() { return isInputEvent; });
@@ -3465,7 +3466,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
 /* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var lodash_es_cloneDeep__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash-es/cloneDeep */ "./node_modules/lodash-es/cloneDeep.js");
-
 
 
 
@@ -3524,30 +3524,64 @@ function _assertThisInitialized(self) {
   return self;
 }
 
+/** @private is the value an empty array? */
+
+var isEmptyArray = function isEmptyArray(value) {
+  return Array.isArray(value) && value.length === 0;
+};
+/** @private is the given object a Function? */
+
 var isFunction = function isFunction(obj) {
   return typeof obj === 'function';
 };
+/** @private is the given object an Object? */
+
 var isObject = function isObject(obj) {
   return obj !== null && typeof obj === 'object';
 };
+/** @private is the given object an integer? */
+
 var isInteger = function isInteger(obj) {
   return String(Math.floor(Number(obj))) === obj;
 };
+/** @private is the given object a string? */
+
 var isString = function isString(obj) {
   return Object.prototype.toString.call(obj) === '[object String]';
 };
+/** @private is the given object a NaN? */
+// eslint-disable-next-line no-self-compare
+
 var isNaN$1 = function isNaN(obj) {
   return obj !== obj;
 };
+/** @private Does a React component have exactly 0 children? */
+
 var isEmptyChildren = function isEmptyChildren(children) {
   return react__WEBPACK_IMPORTED_MODULE_0__["Children"].count(children) === 0;
 };
+/** @private is the given object/value a promise? */
+
 var isPromise = function isPromise(value) {
   return isObject(value) && isFunction(value.then);
 };
+/** @private is the given object/value a type of synthetic event? */
+
 var isInputEvent = function isInputEvent(value) {
   return value && isObject(value) && isObject(value.target);
 };
+/**
+ * Same as document.activeElement but wraps in a try-catch block. In IE it is
+ * not safe to call document.activeElement if there is nothing focused.
+ *
+ * The activeElement will be null only if the document or document body is not
+ * yet defined.
+ *
+ * @param {?Document} doc Defaults to current document.
+ * @return {Element | null}
+ * @see https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/core/dom/getActiveElement.js
+ */
+
 function getActiveElement(doc) {
   doc = doc || (typeof document !== 'undefined' ? document : undefined);
 
@@ -3561,6 +3595,10 @@ function getActiveElement(doc) {
     return doc.body;
   }
 }
+/**
+ * Deeply get a value from an object via its path.
+ */
+
 function getIn(obj, key, def, p) {
   if (p === void 0) {
     p = 0;
@@ -3574,8 +3612,34 @@ function getIn(obj, key, def, p) {
 
   return obj === undefined ? def : obj;
 }
+/**
+ * Deeply set a value from in object via it's path. If the value at `path`
+ * has changed, return a shallow copy of obj with `value` set at `path`.
+ * If `value` has not changed, return the original `obj`.
+ *
+ * Existing objects / arrays along `path` are also shallow copied. Sibling
+ * objects along path retain the same internal js reference. Since new
+ * objects / arrays are only created along `path`, we can test if anything
+ * changed in a nested structure by comparing the object's reference in
+ * the old and new object, similar to how russian doll cache invalidation
+ * works.
+ *
+ * In earlier versions of this function, which used cloneDeep, there were
+ * issues whereby settings a nested value would mutate the parent
+ * instead of creating a new object. `clone` avoids that bug making a
+ * shallow copy of the objects along the update path
+ * so no object is mutated in place.
+ *
+ * Before changing this function, please read through the following
+ * discussions.
+ *
+ * @see https://github.com/developit/linkstate
+ * @see https://github.com/jaredpalmer/formik/pull/123
+ */
+
 function setIn(obj, path, value) {
-  var res = Object(lodash_es_clone__WEBPACK_IMPORTED_MODULE_4__["default"])(obj);
+  var res = Object(lodash_es_clone__WEBPACK_IMPORTED_MODULE_4__["default"])(obj); // this keeps inheritance when obj is a class
+
   var resVal = res;
   var i = 0;
   var pathArray = Object(lodash_es_toPath__WEBPACK_IMPORTED_MODULE_5__["default"])(path);
@@ -3590,24 +3654,35 @@ function setIn(obj, path, value) {
       var nextPath = pathArray[i + 1];
       resVal = resVal[currentPath] = isInteger(nextPath) && Number(nextPath) >= 0 ? [] : {};
     }
-  }
+  } // Return original object if new value is the same as current
+
 
   if ((i === 0 ? obj : resVal)[pathArray[i]] === value) {
     return obj;
   }
 
-  if (value === undefined) {
+  if (value === undefined || isEmptyArray(value)) {
     delete resVal[pathArray[i]];
   } else {
     resVal[pathArray[i]] = value;
-  }
+  } // If the path array has a single element, the loop did not run.
+  // Deleting on `resVal` had no effect in this scenario, so we delete on the result instead.
 
-  if (i === 0 && value === undefined) {
+
+  if (i === 0 && value === undefined || isEmptyArray(value)) {
     delete res[pathArray[i]];
   }
 
   return res;
 }
+/**
+ * Recursively a set the same value for all keys and arrays nested object, cloning
+ * @param object
+ * @param value
+ * @param visited
+ * @param response
+ */
+
 function setNestedObjectValues(object, value, visited, response) {
   if (visited === void 0) {
     visited = new WeakMap();
@@ -3623,7 +3698,10 @@ function setNestedObjectValues(object, value, visited, response) {
 
     if (isObject(val)) {
       if (!visited.get(val)) {
-        visited.set(val, true);
+        visited.set(val, true); // In order to keep array values consistent for both dot path  and
+        // bracket syntax, we need to check if this is an array so that
+        // this will output  { friends: [true] } and not { friends: { "0": true } }
+
         response[k] = Array.isArray(val) ? [] : {};
         setNestedObjectValues(val, value, visited, response[k]);
       }
@@ -3659,6 +3737,10 @@ function formikReducer(state, msg) {
       });
 
     case 'SET_ERRORS':
+      if (react_fast_compare__WEBPACK_IMPORTED_MODULE_1___default()(state.errors, msg.payload)) {
+        return state;
+      }
+
       return _extends({}, state, {
         errors: msg.payload
       });
@@ -3694,7 +3776,7 @@ function formikReducer(state, msg) {
       });
 
     case 'RESET_FORM':
-      return _extends({}, state, msg.payload);
+      return _extends({}, state, {}, msg.payload);
 
     case 'SET_FORMIK_STATE':
       return msg.payload(state);
@@ -3719,7 +3801,8 @@ function formikReducer(state, msg) {
     default:
       return state;
   }
-}
+} // Initial empty states // objects
+
 
 var emptyErrors = {};
 var emptyTouched = {};
@@ -3752,7 +3835,8 @@ function useFormik(_ref) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (true) {
       !(typeof isInitialValid === 'undefined') ?  true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_6__["default"])(false, 'isInitialValid has been deprecated and will be removed in future versions of Formik. Please use initialErrors or validateOnMount instead.') : undefined : void 0;
-    }
+    } // eslint-disable-next-line
+
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     isMounted.current = true;
@@ -3778,6 +3862,7 @@ function useFormik(_ref) {
       var maybePromisedErrors = props.validate(values, field);
 
       if (maybePromisedErrors == null) {
+        // use loose null check here on purpose
         resolve(emptyErrors);
       } else if (isPromise(maybePromisedErrors)) {
         maybePromisedErrors.then(function (errors) {
@@ -3794,6 +3879,10 @@ function useFormik(_ref) {
       }
     });
   }, [props.validate]);
+  /**
+   * Run validation against a Yup schema and optionally run a function if successful
+   */
+
   var runValidationSchema = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (values, field) {
     var validationSchema = props.validationSchema;
     var schema = isFunction(validationSchema) ? validationSchema(field) : validationSchema;
@@ -3802,9 +3891,14 @@ function useFormik(_ref) {
       promise.then(function () {
         resolve(emptyErrors);
       }, function (err) {
+        // Yup will throw a validation error if validation fails. We catch those and
+        // resolve them into Formik errors. We can sniff is something is a Yup error
+        // by checking error.name.
+        // @see https://github.com/jquense/yup#validationerrorerrors-string--arraystring-value-any-path-string
         if (err.name === 'ValidationError') {
           resolve(yupToFormErrors(err));
         } else {
+          // We throw any other errors
           if (true) {
             console.warn("Warning: An unhandled error was caught during validation in <Formik validationSchema />", err);
           }
@@ -3822,10 +3916,12 @@ function useFormik(_ref) {
   var runFieldLevelValidations = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (values) {
     var fieldKeysWithValidation = Object.keys(fieldRegistry.current).filter(function (f) {
       return isFunction(fieldRegistry.current[f].validate);
-    });
+    }); // Construct an array with all of the field validation functions
+
     var fieldValidations = fieldKeysWithValidation.length > 0 ? fieldKeysWithValidation.map(function (f) {
       return runSingleFieldLevelValidation(f, getIn(values, f));
-    }) : [Promise.resolve('DO_NOT_DELETE_YOU_WILL_BE_FIRED')];
+    }) : [Promise.resolve('DO_NOT_DELETE_YOU_WILL_BE_FIRED')]; // use special case ;)
+
     return Promise.all(fieldValidations).then(function (fieldErrorsList) {
       return fieldErrorsList.reduce(function (prev, curr, index) {
         if (curr === 'DO_NOT_DELETE_YOU_WILL_BE_FIRED') {
@@ -3839,7 +3935,8 @@ function useFormik(_ref) {
         return prev;
       }, {});
     });
-  }, [runSingleFieldLevelValidation]);
+  }, [runSingleFieldLevelValidation]); // Run all validations and return the result
+
   var runAllValidations = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (values) {
     return Promise.all([runFieldLevelValidations(values), props.validationSchema ? runValidationSchema(values) : {}, props.validate ? runValidateHandler(values) : {}]).then(function (_ref2) {
       var fieldErrors = _ref2[0],
@@ -3850,7 +3947,14 @@ function useFormik(_ref) {
       });
       return combinedErrors;
     });
-  }, [props.validate, props.validationSchema, runFieldLevelValidations, runValidateHandler, runValidationSchema]);
+  }, [props.validate, props.validationSchema, runFieldLevelValidations, runValidateHandler, runValidationSchema]); // Run validations and dispatching the result as low-priority via rAF.
+  //
+  // The thinking is that validation as a result of onChange and onBlur
+  // should never block user input. Note: This method should never be called
+  // during the submission phase because validation prior to submission
+  // is actaully high-priority since we absolutely need to guarantee the
+  // form is valid before executing props.onSubmit.
+
   var validateFormWithLowPriority = useEventCallback(function (values) {
     if (values === void 0) {
       values = state.values;
@@ -3868,7 +3972,8 @@ function useFormik(_ref) {
         return combinedErrors;
       });
     });
-  });
+  }); // Run all validations methods and update state accordingly
+
   var validateFormWithHighPriority = useEventCallback(function (values) {
     if (values === void 0) {
       values = state.values;
@@ -3957,11 +4062,15 @@ function useFormik(_ref) {
     }
   }, [enableReinitialize, props.initialStatus, props.initialTouched]);
   var validateField = useEventCallback(function (name) {
+    // This will efficiently validate a single field by avoiding state
+    // changes if the validation function is synchronous. It's different from
+    // what is called when using validateForm.
     if (isFunction(fieldRegistry.current[name].validate)) {
       var value = getIn(state.values, name);
       var maybePromise = fieldRegistry.current[name].validate(value);
 
       if (isPromise(maybePromise)) {
+        // Only flip isValidating if the function is async.
         dispatch({
           type: 'SET_ISVALIDATING',
           payload: true
@@ -4048,24 +4157,30 @@ function useFormik(_ref) {
     return validateOnChange && shouldValidate ? validateFormWithLowPriority(setIn(state.values, field, value)) : Promise.resolve();
   });
   var executeChange = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (eventOrTextValue, maybePath) {
+    // By default, assume that the first argument is a string. This allows us to use
+    // handleChange with React Native and React Native Web's onChangeText prop which
+    // provides just the value of the input.
     var field = maybePath;
     var val = eventOrTextValue;
-    var parsed;
+    var parsed; // If the first argument is not a string though, it has to be a synthetic React Event (or a fake one),
+    // so we handle like we would a normal HTML change event.
 
     if (!isString(eventOrTextValue)) {
+      // If we can, persist the event
+      // @see https://reactjs.org/docs/events.html#event-pooling
       if (eventOrTextValue.persist) {
         eventOrTextValue.persist();
       }
 
-      var _eventOrTextValue$tar = eventOrTextValue.target,
-          type = _eventOrTextValue$tar.type,
-          name = _eventOrTextValue$tar.name,
-          id = _eventOrTextValue$tar.id,
-          value = _eventOrTextValue$tar.value,
-          checked = _eventOrTextValue$tar.checked,
-          outerHTML = _eventOrTextValue$tar.outerHTML,
-          options = _eventOrTextValue$tar.options,
-          multiple = _eventOrTextValue$tar.multiple;
+      var target = eventOrTextValue.target ? eventOrTextValue.target : eventOrTextValue.currentTarget;
+      var type = target.type,
+          name = target.name,
+          id = target.id,
+          value = target.value,
+          checked = target.checked,
+          outerHTML = target.outerHTML,
+          options = target.options,
+          multiple = target.multiple;
       field = maybePath ? maybePath : name ? name : id;
 
       if (!field && "development" !== "production") {
@@ -4076,10 +4191,13 @@ function useFormik(_ref) {
         });
       }
 
-      val = /number|range/.test(type) ? (parsed = parseFloat(value), isNaN(parsed) ? '' : parsed) : /checkbox/.test(type) ? getValueForCheckbox(getIn(state.values, field), checked, value) : !!multiple ? getSelectedValues(options) : value;
+      val = /number|range/.test(type) ? (parsed = parseFloat(value), isNaN(parsed) ? '' : parsed) : /checkbox/.test(type) // checkboxes
+      ? getValueForCheckbox(getIn(state.values, field), checked, value) : !!multiple // <select multiple>
+      ? getSelectedValues(options) : value;
     }
 
     if (field) {
+      // Set form fields by name
       setFieldValue(field, val);
     }
   }, [setFieldValue, state.values]);
@@ -4189,13 +4307,37 @@ function useFormik(_ref) {
       type: 'SUBMIT_ATTEMPT'
     });
     return validateFormWithHighPriority().then(function (combinedErrors) {
-      var isActuallyValid = Object.keys(combinedErrors).length === 0;
+      // In case an error was thrown and passed to the resolved Promise,
+      // `combinedErrors` can be an instance of an Error. We need to check
+      // that and abort the submit.
+      // If we don't do that, calling `Object.keys(new Error())` yields an
+      // empty array, which causes the validation to pass and the form
+      // to be submitted.
+      var isInstanceOfError = combinedErrors instanceof Error;
+      var isActuallyValid = !isInstanceOfError && Object.keys(combinedErrors).length === 0;
 
       if (isActuallyValid) {
-        var promiseOrUndefined = executeSubmit();
+        // Proceed with submit...
+        //
+        // To respect sync submit fns, we can't simply wrap executeSubmit in a promise and
+        // _always_ dispatch SUBMIT_SUCCESS because isSubmitting would then always be false.
+        // This would be fine in simple cases, but make it impossible to disable submit
+        // buttons where people use callbacks or promises as side effects (which is basically
+        // all of v1 Formik code). Instead, recall that we are inside of a promise chain already,
+        //  so we can try/catch executeSubmit(), if it returns undefined, then just bail.
+        // If there are errors, throw em. Otherwise, wrap executeSubmit in a promise and handle
+        // cleanup of isSubmitting on behalf of the consumer.
+        var promiseOrUndefined;
 
-        if (promiseOrUndefined === undefined) {
-          return;
+        try {
+          promiseOrUndefined = executeSubmit(); // Bail if it's sync, consumer is responsible for cleaning up
+          // via setSubmitting(false)
+
+          if (promiseOrUndefined === undefined) {
+            return;
+          }
+        } catch (error) {
+          throw error;
         }
 
         return Promise.resolve(promiseOrUndefined).then(function () {
@@ -4208,15 +4350,21 @@ function useFormik(_ref) {
           if (!!isMounted.current) {
             dispatch({
               type: 'SUBMIT_FAILURE'
-            });
+            }); // This is a legit error rejected by the onSubmit fn
+            // so we don't want to break the promise chain
+
             throw _errors;
           }
         });
       } else if (!!isMounted.current) {
+        // ^^^ Make sure Formik is still mounted before updating state
         dispatch({
           type: 'SUBMIT_FAILURE'
-        });
-        return;
+        }); // throw combinedErrors;
+
+        if (isInstanceOfError) {
+          throw combinedErrors;
+        }
       }
 
       return;
@@ -4229,9 +4377,14 @@ function useFormik(_ref) {
 
     if (e && e.stopPropagation && isFunction(e.stopPropagation)) {
       e.stopPropagation();
-    }
+    } // Warn if form submission is triggered by a <button> without a
+    // specified `type` attribute during development. This mitigates
+    // a common gotcha in forms with both reset and submit buttons,
+    // where the dev forgets to add type="button" to the reset button.
+
 
     if ( true && typeof document !== 'undefined') {
+      // Safely get the active element (works with IE)
       var activeElement = getActiveElement();
 
       if (activeElement !== null && activeElement instanceof HTMLButtonElement) {
@@ -4309,7 +4462,7 @@ function useFormik(_ref) {
   }, [handleBlur, handleChange, state.values]);
   var dirty = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
     return !react_fast_compare__WEBPACK_IMPORTED_MODULE_1___default()(initialValues.current, state.values);
-  }, [state.values]);
+  }, [initialValues.current, state.values]);
   var isValid = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
     return typeof isInitialValid !== 'undefined' ? dirty ? state.errors && Object.keys(state.errors).length === 0 : isInitialValid !== false && isFunction(isInitialValid) ? isInitialValid(props) : isInitialValid : state.errors && Object.keys(state.errors).length === 0;
   }, [isInitialValid, dirty, state.errors, props]);
@@ -4357,11 +4510,13 @@ function Formik(props) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (true) {
       !!props.render ?  true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_6__["default"])(false, "<Formik render> has been deprecated and will be removed in future versions of Formik. Please use a child callback function instead. To get rid of this warning, replace <Formik render={(props) => ...} /> with <Formik>{(props) => ...}</Formik>") : undefined : void 0;
-    }
+    } // eslint-disable-next-line
+
   }, []);
   return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(FormikProvider, {
     value: formikbag
-  }, component ? Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, formikbag) : render ? render(formikbag) : children ? isFunction(children) ? children(formikbag) : !isEmptyChildren(children) ? react__WEBPACK_IMPORTED_MODULE_0__["Children"].only(children) : null : null);
+  }, component ? Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, formikbag) : render ? render(formikbag) : children // children come last, always called
+  ? isFunction(children) ? children(formikbag) : !isEmptyChildren(children) ? react__WEBPACK_IMPORTED_MODULE_0__["Children"].only(children) : null : null);
 }
 
 function warnAboutMissingIdentifier(_ref4) {
@@ -4370,6 +4525,10 @@ function warnAboutMissingIdentifier(_ref4) {
       handlerName = _ref4.handlerName;
   console.warn("Warning: Formik called `" + handlerName + "`, but you forgot to pass an `id` or `name` attribute to your input:\n    " + htmlContent + "\n    Formik cannot determine which value to update. For more info see https://github.com/jaredpalmer/formik#" + documentationAnchorLink + "\n  ");
 }
+/**
+ * Transform Yup ValidationError to a more usable object
+ */
+
 
 function yupToFormErrors(yupError) {
   var errors = {};
@@ -4401,6 +4560,10 @@ function yupToFormErrors(yupError) {
 
   return errors;
 }
+/**
+ * Validate a yup schema.
+ */
+
 function validateYupSchema(values, schema, sync, context) {
   if (sync === void 0) {
     sync = false;
@@ -4416,6 +4579,10 @@ function validateYupSchema(values, schema, sync, context) {
     context: context
   });
 }
+/**
+ * Recursively prepare values.
+ */
+
 function prepareDataForValidation(values) {
   var data = {};
 
@@ -4441,6 +4608,10 @@ function prepareDataForValidation(values) {
 
   return data;
 }
+/**
+ * deepmerge array merging algorithm
+ * https://github.com/KyleAMathews/deepmerge#combine-array
+ */
 
 function arrayMerge(target, source, options) {
   var destination = target.slice();
@@ -4457,6 +4628,8 @@ function arrayMerge(target, source, options) {
   });
   return destination;
 }
+/** Return multi select values based on an array of options */
+
 
 function getSelectedValues(options) {
   return Array.from(options).filter(function (el) {
@@ -4465,8 +4638,11 @@ function getSelectedValues(options) {
     return el.value;
   });
 }
+/** Return the next value for a checkbox */
+
 
 function getValueForCheckbox(currentValue, checked, valueProp) {
+  // eslint-disable-next-line eqeqeq
   if (valueProp == 'true' || valueProp == 'false') {
     return !!checked;
   }
@@ -4486,12 +4662,17 @@ function getValueForCheckbox(currentValue, checked, valueProp) {
   }
 
   return currentValue.slice(0, index).concat(currentValue.slice(index + 1));
-}
+} // React currently throws a warning when using useLayoutEffect on the server.
+// To get around it, we can conditionally useEffect on the server (no-op) and
+// useLayoutEffect in the browser.
+// @see https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
+
 
 var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"] : react__WEBPACK_IMPORTED_MODULE_0__["useEffect"];
 
 function useEventCallback(fn) {
-  var ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(fn);
+  var ref = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(fn); // we copy a ref to the callback scoped to the current state/props on each render
+
   useIsomorphicLayoutEffect(function () {
     ref.current = fn;
   });
@@ -4560,8 +4741,10 @@ function Field(_ref) {
       !!(is && children && isFunction(children)) ?  true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_6__["default"])(false, 'You should not use <Field as> and <Field children> as a function in the same <Field> component; <Field as> will be ignored.') : undefined : void 0;
       !!(component && children && isFunction(children)) ?  true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_6__["default"])(false, 'You should not use <Field component> and <Field children> as a function in the same <Field> component; <Field component> will be ignored.') : undefined : void 0;
       !!(render && children && !isEmptyChildren(children)) ?  true ? Object(tiny_warning__WEBPACK_IMPORTED_MODULE_6__["default"])(false, 'You should not use <Field render> and <Field children> in the same <Field> component; <Field children> will be ignored') : undefined : void 0;
-    }
-  }, []);
+    } // eslint-disable-next-line
+
+  }, []); // Register field and field-level validation with parent <Formik>
+
   var registerField = formik.registerField,
       unregisterField = formik.unregisterField;
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -4594,20 +4777,23 @@ function Field(_ref) {
   }
 
   if (component) {
+    // This behavior is backwards compat with earlier Formik 0.9 to 1.x
     if (typeof component === 'string') {
       var innerRef = props.innerRef,
           rest = _objectWithoutPropertiesLoose(props, ["innerRef"]);
 
       return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, _extends({
         ref: innerRef
-      }, field, rest), children);
-    }
+      }, field, {}, rest), children);
+    } // We don't pass `meta` for backwards compat
+
 
     return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, _extends({
       field: field,
       form: formik
     }, props), children);
-  }
+  } // default to input here so we can check for both `as` and `children` above
+
 
   var asElement = is || 'input';
 
@@ -4617,15 +4803,17 @@ function Field(_ref) {
 
     return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({
       ref: _innerRef
-    }, field, _rest), children);
+    }, field, {}, _rest), children);
   }
 
-  return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({}, field, props), children);
+  return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({}, field, {}, props), children);
 }
 
 var Form =
 /*#__PURE__*/
 Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function (props, ref) {
+  // iOS needs an "action" attribute for nice input: https://stackoverflow.com/a/39485162/406725
+  // We default the action to "#" in case the preventDefault fails (just updates the URL hash)
   var action = props.action,
       rest = _objectWithoutPropertiesLoose(props, ["action"]);
 
@@ -4644,6 +4832,10 @@ Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function (props, ref) {
 });
 Form.displayName = 'Form';
 
+/**
+ * A public higher-order component to access the imperative API
+ */
+
 function withFormik(_ref) {
   var _ref$mapPropsToValues = _ref.mapPropsToValues,
       mapPropsToValues = _ref$mapPropsToValues === void 0 ? function (vanillaProps) {
@@ -4651,6 +4843,7 @@ function withFormik(_ref) {
 
     for (var k in vanillaProps) {
       if (vanillaProps.hasOwnProperty(k) && typeof vanillaProps[k] !== 'function') {
+        // @todo TypeScript fix
         val[k] = vanillaProps[k];
       }
     }
@@ -4661,6 +4854,10 @@ function withFormik(_ref) {
 
   return function createFormik(Component$1) {
     var componentDisplayName = Component$1.displayName || Component$1.name || Component$1.constructor && Component$1.constructor.name || 'Component';
+    /**
+     * We need to use closures here for to provide the wrapped component's props to
+     * the respective withFormik config methods.
+     */
 
     var C =
     /*#__PURE__*/
@@ -4685,6 +4882,10 @@ function withFormik(_ref) {
             props: _this.props
           }));
         };
+        /**
+         * Just avoiding a render callback for perf here
+         */
+
 
         _this.renderFormComponent = function (formikProps) {
           return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(Component$1, Object.assign({}, _this.props, formikProps));
@@ -4716,9 +4917,15 @@ function withFormik(_ref) {
     }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
     C.displayName = "WithFormik(" + componentDisplayName + ")";
-    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8___default()(C, Component$1);
+    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8___default()(C, Component$1 // cast type to ComponentClass (even if SFC)
+    );
   };
 }
+
+/**
+ * Connect any component to Formik context, and inject as a prop called `formik`;
+ * @param Comp React Component
+ */
 
 function connect(Comp) {
   var C = function C(props) {
@@ -4730,11 +4937,18 @@ function connect(Comp) {
     });
   };
 
-  var componentDisplayName = Comp.displayName || Comp.name || Comp.constructor && Comp.constructor.name || 'Component';
+  var componentDisplayName = Comp.displayName || Comp.name || Comp.constructor && Comp.constructor.name || 'Component'; // Assign Comp to C.WrappedComponent so we can access the inner component in tests
+  // For example, <Field.WrappedComponent /> gets us <FieldInner/>
+
   C.WrappedComponent = Comp;
   C.displayName = "FormikConnect(" + componentDisplayName + ")";
-  return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8___default()(C, Comp);
+  return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_8___default()(C, Comp // cast type to ComponentClass (even if SFC)
+  );
 }
+
+/**
+ * Some array helpers!
+ */
 
 var move = function move(array, from, to) {
   var copy = copyArrayLike(array);
@@ -4791,10 +5005,7 @@ function (_React$Component) {
     _this.updateArrayField = function (fn, alterTouched, alterErrors) {
       var _this$props = _this.props,
           name = _this$props.name,
-          validateOnChange = _this$props.validateOnChange,
-          _this$props$formik = _this$props.formik,
-          setFormikState = _this$props$formik.setFormikState,
-          validateForm = _this$props$formik.validateForm;
+          setFormikState = _this$props.formik.setFormikState;
       setFormikState(function (prevState) {
         var updateErrors = typeof alterErrors === 'function' ? alterErrors : fn;
         var updateTouched = typeof alterTouched === 'function' ? alterTouched : fn;
@@ -4803,10 +5014,6 @@ function (_React$Component) {
           errors: alterErrors ? setIn(prevState.errors, name, updateErrors(getIn(prevState.errors, name))) : prevState.errors,
           touched: alterTouched ? setIn(prevState.touched, name, updateTouched(getIn(prevState.touched, name))) : prevState.touched
         });
-      }, function () {
-        if (validateOnChange) {
-          validateForm();
-        }
       });
     };
 
@@ -4922,7 +5129,9 @@ function (_React$Component) {
       return function () {
         return _this.pop();
       };
-    };
+    }; // We need TypeScript generics on these, so we'll bind them in the constructor
+    // @todo Fix TS 3.2.1
+
 
     _this.remove = _this.remove.bind(_assertThisInitialized(_this));
     _this.pop = _this.pop.bind(_assertThisInitialized(_this));
@@ -4931,9 +5140,17 @@ function (_React$Component) {
 
   var _proto = FieldArrayInner.prototype;
 
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    if (!react_fast_compare__WEBPACK_IMPORTED_MODULE_1___default()(getIn(prevProps.formik.values, prevProps.name), getIn(this.props.formik.values, this.props.name)) && this.props.formik.validateOnChange) {
+      this.props.formik.validateForm();
+    }
+  };
+
   _proto.remove = function remove(index) {
+    // We need to make sure we also remove relevant pieces of `touched` and `errors`
     var result;
-    this.updateArrayField(function (array) {
+    this.updateArrayField( // so this gets call 3 times
+    function (array) {
       var copy = array ? copyArrayLike(array) : [];
 
       if (!result) {
@@ -4950,8 +5167,10 @@ function (_React$Component) {
   };
 
   _proto.pop = function pop() {
+    // Remove relevant pieces of `touched` and `errors` too!
     var result;
-    this.updateArrayField(function (array) {
+    this.updateArrayField( // so this gets call 3 times
+    function (array) {
       var tmp = array;
 
       if (!result) {
@@ -4998,7 +5217,8 @@ function (_React$Component) {
       name: name
     });
 
-    return component ? Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, props) : render ? render(props) : children ? typeof children === 'function' ? children(props) : !isEmptyChildren(children) ? react__WEBPACK_IMPORTED_MODULE_0__["Children"].only(children) : null : null;
+    return component ? Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, props) : render ? render(props) : children // children come last, always called
+    ? typeof children === 'function' ? children(props) : !isEmptyChildren(children) ? react__WEBPACK_IMPORTED_MODULE_0__["Children"].only(children) : null : null;
   };
 
   return FieldArrayInner;
@@ -5051,12 +5271,17 @@ var ErrorMessage =
 /*#__PURE__*/
 connect(ErrorMessageImpl);
 
-var FastField =
+/**
+ * Custom Field component for quickly hooking into Formik
+ * context and wiring up forms.
+ */
+
+var FastFieldInner =
 /*#__PURE__*/
 function (_React$Component) {
-  _inheritsLoose(FastField, _React$Component);
+  _inheritsLoose(FastFieldInner, _React$Component);
 
-  function FastField(props) {
+  function FastFieldInner(props) {
     var _this;
 
     _this = _React$Component.call(this, props) || this;
@@ -5073,12 +5298,12 @@ function (_React$Component) {
     return _this;
   }
 
-  var _proto = FastField.prototype;
+  var _proto = FastFieldInner.prototype;
 
-  _proto.shouldComponentUpdate = function shouldComponentUpdate(props, _state, context) {
+  _proto.shouldComponentUpdate = function shouldComponentUpdate(props) {
     if (this.props.shouldUpdate) {
       return this.props.shouldUpdate(props, this.props);
-    } else if (getIn(this.context.values, this.props.name) !== getIn(context.values, this.props.name) || getIn(this.context.errors, this.props.name) !== getIn(context.errors, this.props.name) || getIn(this.context.touched, this.props.name) !== getIn(context.touched, this.props.name) || Object.keys(this.props).length !== Object.keys(props).length || this.context.isSubmitting !== context.isSubmitting) {
+    } else if (props.name !== this.props.name || getIn(props.formik.values, this.props.name) !== getIn(this.props.formik.values, this.props.name) || getIn(props.formik.errors, this.props.name) !== getIn(this.props.formik.errors, this.props.name) || getIn(props.formik.touched, this.props.name) !== getIn(this.props.formik.touched, this.props.name) || Object.keys(this.props).length !== Object.keys(props).length || props.formik.isSubmitting !== this.props.formik.isSubmitting) {
       return true;
     } else {
       return false;
@@ -5086,28 +5311,30 @@ function (_React$Component) {
   };
 
   _proto.componentDidMount = function componentDidMount() {
-    this.context.registerField(this.props.name, {
+    // Register the Field with the parent Formik. Parent will cycle through
+    // registered Field's validate fns right prior to submit
+    this.props.formik.registerField(this.props.name, {
       validate: this.props.validate
     });
   };
 
   _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
     if (this.props.name !== prevProps.name) {
-      this.context.unregisterField(prevProps.name);
-      this.context.registerField(this.props.name, {
+      this.props.formik.unregisterField(prevProps.name);
+      this.props.formik.registerField(this.props.name, {
         validate: this.props.validate
       });
     }
 
     if (this.props.validate !== prevProps.validate) {
-      this.context.registerField(this.props.name, {
+      this.props.formik.registerField(this.props.name, {
         validate: this.props.validate
       });
     }
   };
 
   _proto.componentWillUnmount = function componentWillUnmount() {
-    this.context.unregisterField(this.props.name);
+    this.props.formik.unregisterField(this.props.name);
   };
 
   _proto.render = function render() {
@@ -5119,16 +5346,16 @@ function (_React$Component) {
         children = _this$props.children,
         component = _this$props.component,
         shouldUpdate = _this$props.shouldUpdate,
-        props = _objectWithoutPropertiesLoose(_this$props, ["validate", "name", "render", "as", "children", "component", "shouldUpdate"]);
-
-    var formik = this.context;
+        formik = _this$props.formik,
+        props = _objectWithoutPropertiesLoose(_this$props, ["validate", "name", "render", "as", "children", "component", "shouldUpdate", "formik"]);
 
     var _validate = formik.validate,
         _validationSchema = formik.validationSchema,
         restOfFormik = _objectWithoutPropertiesLoose(formik, ["validate", "validationSchema"]);
 
     var field = {
-      value: props.type === 'radio' || props.type === 'checkbox' ? props.value : getIn(formik.values, name),
+      value: props.type === 'radio' || props.type === 'checkbox' ? props.value // React uses checked={} for these inputs
+      : getIn(formik.values, name),
       name: name,
       onChange: formik.handleChange,
       onBlur: formik.handleBlur
@@ -5156,20 +5383,23 @@ function (_React$Component) {
     }
 
     if (component) {
+      // This behavior is backwards compat with earlier Formik 0.9 to 1.x
       if (typeof component === 'string') {
         var innerRef = props.innerRef,
             rest = _objectWithoutPropertiesLoose(props, ["innerRef"]);
 
         return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, _extends({
           ref: innerRef
-        }, field, rest), children);
-      }
+        }, field, {}, rest), children);
+      } // We don't pass `meta` for backwards compat
+
 
       return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(component, _extends({
         field: field,
         form: formik
       }, props), children);
-    }
+    } // default to input here so we can check for both `as` and `children` above
+
 
     var asElement = is || 'input';
 
@@ -5179,15 +5409,18 @@ function (_React$Component) {
 
       return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({
         ref: _innerRef
-      }, field, _rest), children);
+      }, field, {}, _rest), children);
     }
 
-    return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({}, field, props), children);
+    return Object(react__WEBPACK_IMPORTED_MODULE_0__["createElement"])(asElement, _extends({}, field, {}, props), children);
   };
 
-  return FastField;
+  return FastFieldInner;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-FastField.contextType = FormikContext;
+
+var FastField =
+/*#__PURE__*/
+connect(FastFieldInner);
 
 
 //# sourceMappingURL=formik.esm.js.map
@@ -85706,7 +85939,13 @@ __webpack_require__(/*! ./components/AdminPage */ "./resources/js/components/Adm
 
 __webpack_require__(/*! ./components/Menu */ "./resources/js/components/Menu.js");
 
+__webpack_require__(/*! ./components/Jumbotron */ "./resources/js/components/Jumbotron.js");
+
+__webpack_require__(/*! ./components/Slide */ "./resources/js/components/Slide.js");
+
 __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.js");
+
+__webpack_require__(/*! ./components/Formlg */ "./resources/js/components/Formlg.js");
 
 /***/ }),
 
@@ -86285,7 +86524,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Contact us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "cw pl-2"
       }, "Question ? We\u2019ve got answers", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " try us."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "btn-block btnf "
+        className: "btn-block btnf p-2 "
       }, "Email us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86316,6 +86555,239 @@ function (_Component) {
 
 if (document.getElementById('footer')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Footer, null), document.getElementById('footer'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Formlg.js":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Formlg.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Form; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var Form =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Form, _Component);
+
+  function Form() {
+    var _this;
+
+    _classCallCheck(this, Form);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Form).call(this));
+    _this.state = {
+      name: '',
+      pass: '',
+      msg: ''
+    };
+    return _this;
+  }
+
+  _createClass(Form, [{
+    key: "changeuser",
+    value: function changeuser(e) {
+      this.setState({
+        name: e.target.value
+      });
+    }
+  }, {
+    key: "changepass",
+    value: function changepass(e) {
+      this.setState({
+        pass: e.target.value
+      });
+    }
+  }, {
+    key: "handlesub",
+    value: function handlesub(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      axios.post('/api/setlogin', this.state).then(function (response) {
+        if (response.data == 0) {
+          _this2.setState({
+            msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              className: "alert alert-danger "
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Warning !"), " username OR password is Incorrect .")
+          });
+        } else {
+          _this2.setState({
+            msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              "class": "alert alert-success"
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Success !"), " Correct .")
+          });
+        }
+      }).then(function (error) {
+        console.log(error);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handlesub.bind(this)
+      }, this.state.msg, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3 mt-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-user p-2"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "username",
+        type: "name",
+        className: "form-control p-4 ",
+        "aria-describedby": "emailHelp",
+        placeholder: "username",
+        onChange: this.changeuser.bind(this)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3 mt-4 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-key  p-2"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "password",
+        type: "password",
+        className: "form-control p-4 ",
+        placeholder: "password",
+        onChange: this.changepass.bind(this)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "p-2 btn2 btn-block p-2 mb-4"
+      }, "Login"));
+    }
+  }]);
+
+  return Form;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('form')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Form, null), document.getElementById('form'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Jumbotron.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Jumbotron.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Jumbotron; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _images_Cover_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/Cover.png */ "./resources/js/components/images/Cover.png");
+/* harmony import */ var _images_Cover_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_Cover_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var Jumbotron =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Jumbotron, _Component);
+
+  function Jumbotron() {
+    _classCallCheck(this, Jumbotron);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Jumbotron).apply(this, arguments));
+  }
+
+  _createClass(Jumbotron, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row up px-4 pt-5 pb-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "display-5 tw animated shake"
+      }, "Gestion Scolarite"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "decription animated shake"
+      }, "gestion de scolarite est une application web qui permetre aux etudiant ,enseignent et adminstrateur des ecloes de gerer leur ecole."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        id: "btnlog",
+        className: "btnl  glow-on-hover animated swing "
+      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-5 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "img-fluid animated tada ",
+        src: _images_Cover_png__WEBPACK_IMPORTED_MODULE_2___default.a
+      })));
+    }
+  }]);
+
+  return Jumbotron;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('jumbotron')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Jumbotron, null), document.getElementById('jumbotron'));
 }
 
 /***/ }),
@@ -86523,7 +86995,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
         expand: "lg",
         variant: "dark",
-        className: "navbargs px-4"
+        className: "navbargs p-4 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
         href: "#home"
       }, "ISchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
@@ -86532,16 +87004,11 @@ function (_Component) {
         id: "basic-navbar-nav",
         className: "justify-content-end"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
-        className: "pr-3",
-        href: "#home"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-home mr-2"
-      }), "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+        className: "pr-3"
+      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
         className: "nav-link",
         href: "#Contact"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-id-badge mr-2"
-      }), "Contact"))));
+      }, "Contact"))));
     }
   }]);
 
@@ -86553,6 +87020,114 @@ function (_Component) {
 
 if (document.getElementById('menu')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Menu, null), document.getElementById('menu'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Slide.js":
+/*!******************************************!*\
+  !*** ./resources/js/components/Slide.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Slide; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/student.png */ "./resources/js/components/images/student.png");
+/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_student_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/admin.png */ "./resources/js/components/images/admin.png");
+/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_admin_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/teacher.png */ "./resources/js/components/images/teacher.png");
+/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_teacher_png__WEBPACK_IMPORTED_MODULE_4__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var text1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  className: "display-6 "
+}, "The student can check his notes. ");
+var text2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  className: "display-6 "
+}, "The admintrator can manage the notes of students. ");
+var text3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  className: "display-6"
+}, "The teacher can put the notes of students. ");
+
+var Slide =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Slide, _Component);
+
+  function Slide() {
+    _classCallCheck(this, Slide);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Slide).apply(this, arguments));
+  }
+
+  _createClass(Slide, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row mt-5"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-7 "
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.ImgS,
+        className: "img-fluid "
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-5 pt-5 "
+      }, " ", this.props.textG));
+    }
+  }]);
+
+  return Slide;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+
+if (document.getElementById('slide1')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slide, {
+    textG: text1,
+    ImgS: _images_student_png__WEBPACK_IMPORTED_MODULE_2___default.a
+  }), document.getElementById('slide1'));
+}
+
+if (document.getElementById('slide2')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slide, {
+    textG: text2,
+    ImgS: _images_admin_png__WEBPACK_IMPORTED_MODULE_3___default.a
+  }), document.getElementById('slide2'));
+}
+
+if (document.getElementById('slide3')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slide, {
+    textG: text3,
+    ImgS: _images_teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+  }), document.getElementById('slide3'));
 }
 
 /***/ }),
@@ -86699,6 +87274,50 @@ if (document.getElementById('student')) {
 }
 
 ;
+
+/***/ }),
+
+/***/ "./resources/js/components/images/Cover.png":
+/*!**************************************************!*\
+  !*** ./resources/js/components/images/Cover.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Cover.png?a27baa2cf61f96a38d6cae8b2c1af757";
+
+/***/ }),
+
+/***/ "./resources/js/components/images/admin.png":
+/*!**************************************************!*\
+  !*** ./resources/js/components/images/admin.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/admin.png?c0b8de10d8fb9197b832a1fd9ea1a1eb";
+
+/***/ }),
+
+/***/ "./resources/js/components/images/student.png":
+/*!****************************************************!*\
+  !*** ./resources/js/components/images/student.png ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/student.png?b9a67f2d81dbd8af78f665e05d9477ef";
+
+/***/ }),
+
+/***/ "./resources/js/components/images/teacher.png":
+/*!****************************************************!*\
+  !*** ./resources/js/components/images/teacher.png ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/teacher.png?8c6128f925d3c4d3cf7217e7c72203c3";
 
 /***/ }),
 

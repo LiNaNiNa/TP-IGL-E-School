@@ -14,8 +14,9 @@ require('./bootstrap');
 
 //require('./components/Example');
 require('./components/StudentPage');
-
 require('./components/AdminPage');
 require('./components/Menu');
+require('./components/Jumbotron');
+require('./components/Slide');
 require('./components/Footer');
-
+require('./components/Formlg');

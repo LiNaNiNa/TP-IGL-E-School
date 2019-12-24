@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Authen;
+use App\Compte;
 use App\Http\Requests\LoginRequest;
 class HomeController extends Controller
 {
@@ -33,11 +33,13 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LoginRequest $request)
+    public function store(Request $request)
     {
-       $authen = new Authen();
-       $count=$authen->where('username',$request->input('username'))->where('password',$request->input('password'))->count();
-       dd($count);
+    
+       $compte = new Compte();
+       $count=$compte->where('username',$request->get('name'))->where('password',$request->get('pass'))->count();
+       return response()->json($count);
+     
 
     }
 

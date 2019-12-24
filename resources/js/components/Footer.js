@@ -12,7 +12,7 @@ export default class Footer extends   Component{
                     <h5 className="cw pl-2">Question ? We’ve got
                         answers<br /> try us.</h5>
                     <br />
-                    <button className="btn-block btnf ">Email us</button>
+                    <button className="btn-block btnf p-2 ">Email us</button>
                     <br />
                 </div>
                 <div className="col-sm-1"></div>

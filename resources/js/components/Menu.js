@@ -5,13 +5,13 @@ export default class Menu extends Component {
 
     render() {
         return (
-            <Navbar expand="lg" variant="dark" className="navbargs px-4" >
+            <Navbar expand="lg" variant="dark" className="navbargs p-4 "   >
                 <Navbar.Brand href="#home">ISchool</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >
-                        <Nav.Link className="pr-3" href="#home"><i className="fas fa-home mr-2"></i>Home</Nav.Link>
-                        <Nav.Link className="nav-link" href="#Contact"><i className="fas fa-id-badge mr-2"></i>Contact</Nav.Link>
+                        <Nav.Link  className="pr-3" >Login</Nav.Link>
+                        <Nav.Link className="nav-link" href="#Contact">Contact</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>         
             </Navbar>

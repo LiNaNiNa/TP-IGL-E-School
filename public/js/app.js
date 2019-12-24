@@ -86809,6 +86809,8 @@ function (_Component) {
 
       e.preventDefault();
       axios.post('/api/setlogin', this.state).then(function (response) {
+        console.log(response.data);
+
         if (response.data == 0) {
           _this2.setState({
             msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

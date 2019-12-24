@@ -44,7 +44,7 @@
 <body >
     <div id="bodyHome" >
         <div id="menu"></div>
-        <div id="jumbotron"></div>
+        <div id="jumbotron"  ></div>
         <div class="container mt-5">
             <h1 class="display-5 pt-4 pb-5" align="center">Who can use this web site and what can they do ?</h1>
             <div id="slide1"></div>

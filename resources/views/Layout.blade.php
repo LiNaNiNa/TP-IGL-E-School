@@ -18,11 +18,11 @@
 </head>
 <body style="margin:0px;">
     
-    <div id="menu"></div>
+    <div id="menuprofile"></div>
 
     @yield('Content')
     
-    <div id="footer"></div>
+    <div id="footerprofile"></div>
 
     <script type="text/javascript" src="/js/app.js"></script>
 </body>

@@ -12,3 +12,7 @@ Route::get('/form', function () {
 Route::get('/student', function () {
     return view('Student');
 });
+
+Route::get('/profile',function(){
+    return view('profile');
+});

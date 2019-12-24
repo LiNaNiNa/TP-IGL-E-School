@@ -10,7 +10,7 @@ return (
         <div className="mt-5">
             <div className="row">
                 <div className="col-sm-2"></div>
-                <div className="col-sm-2" onClick={()=> {
+                <div className="col-sm-2 " onClick={()=> {
                     console.log("Yuupi");
                     if (document.getElementById('student')) {
                     ReactDOM.render(
@@ -93,5 +93,5 @@ return (
 if (document.getElementById('student')) {
 ReactDOM.render(
 <StudentPage />, document.getElementById('student'));
-//ReactDOM.render(<h1>LINA</h1>, document.getElementById('student'));
 };
+

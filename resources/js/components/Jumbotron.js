@@ -18,7 +18,7 @@ export default class Jumbotron extends Component {
                 </div>
                 <div className="col-sm-1"></div>
                 <div className="col-sm-5 ">
-                    <img className="img-fluid animated tada " src={cover} />
+                    <img className="img-fluid animated  " src={cover} />
                 </div>
             </div>
         );

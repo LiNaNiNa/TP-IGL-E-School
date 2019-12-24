@@ -6,10 +6,11 @@ body {
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
-    height: 100vh;
-    margin: 0;
     overflow-x: hidden;
-    
+    padding: 0;
+    margin: 0 !important;
+    width: auto;
+    height: auto;
 }
 .cww{
     padding: 12px;
@@ -47,8 +48,9 @@ body {
 }
 .navbargs{
     background-color:#085DCB;
-    
-      
+}
+.navbargsprofile{
+    background-color:white;
 }
 .nav-link{
     color: rgb(230, 230, 230);
@@ -243,4 +245,50 @@ footer {
     0% { background-position: 0 0; }
     50% { background-position: 100% 0; }
     100% { background-position: 0 0; }
+}
+.imgresp{
+    width: 200px;
+    height: 200px;
+}
+.contact{
+    background-color: white !important;
+    border-top:1px solid #085DCB;
+    
+
+}
+
+.contact>h4,h6{
+  
+    color: black!important;
+    
+    
+
+}
+contact>h6,h4{
+    
+    color: #085DCB!important;
+
+}
+.btns{
+    background-color: white;
+    border: 1px solid #085DCB;
+    color: #085DCB;
+    border-radius: 4px !important;
+}
+.btns:hover{
+    background-color: #085DCB;
+    border: 1px solid white;
+    color: white;
+}
+
+.pmain:hover{
+   
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
+    transition: 1s ease;
+    
+}
+.pmain{
+    transition: 1s ease;
 }

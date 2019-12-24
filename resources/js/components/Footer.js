@@ -5,7 +5,7 @@ export default class Footer extends   Component{
     render(){
         return(
             <footer  className="w-auto  mt-5 " id="Contact">
-            <div className="row pt-5 pb-4">
+            <div className="row pt-4 pb-1">
                 <div className="col-sm-1"></div>
                 <div className="col-sm-3">
                     <h3 className="cw "><b>Contact us</b></h3>

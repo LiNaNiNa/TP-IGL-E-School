@@ -85947,6 +85947,10 @@ __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer
 
 __webpack_require__(/*! ./components/Formlg */ "./resources/js/components/Formlg.js");
 
+__webpack_require__(/*! ./components/NavbarProfile */ "./resources/js/components/NavbarProfile.js");
+
+__webpack_require__(/*! ./components/ContacteProfile */ "./resources/js/components/ContacteProfile.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -86168,6 +86172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _teacher_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_teacher_png__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -86204,14 +86210,12 @@ function (_Component) {
   _createClass(AdminPage, [{
     key: "render",
     value: function render() {
+      var _React$createElement2, _React$createElement3, _React$createElement4, _React$createElement5;
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2",
+        className: "row m-3 ",
         onClick: function onClick() {
           console.log("Yuupi");
 
@@ -86219,63 +86223,133 @@ function (_Component) {
             react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('root'));
           }
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-        style: {
-          width: '18rem'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
-        variant: "top",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+        className: "col-sm-7  "
+      }, "className", " shadow p-5 mb-5 rounded pmain  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Show Marks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2 "
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4 "
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
         src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, "Ajouter Etudiant"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-        style: {
-          width: '18rem'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
-        variant: "top",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, "Ajouter Enseignant"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-        style: {
-          width: '18rem'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
-        variant: "top",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, "Make EDP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row mt-5"
+        className: "row m-3 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-3"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-        style: {
-          width: '18rem'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
-        variant: "top",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, "Sth else"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-        style: {
-          width: '18rem'
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement2 = {
+        className: "col-sm-7 "
+      }, _defineProperty(_React$createElement2, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement2, "onClick", function onClick() {
+        console.log("Yuupi");
+
+        if (document.getElementById('student')) {
+          react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('student'));
         }
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
-        variant: "top",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, "Do sth else"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), _React$createElement2), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Consult Agenda"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row m-3 "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement3 = {
+        className: "col-sm-7 "
+      }, _defineProperty(_React$createElement3, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement3, "onClick", function onClick() {
+        console.log("Yuupi");
+
+        if (document.getElementById('student')) {
+          react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('student'));
+        }
+      }), _React$createElement3), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row m-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement4 = {
+        className: "col-sm-7 "
+      }, _defineProperty(_React$createElement4, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement4, "onClick", function onClick() {
+        console.log("Yuupi");
+
+        if (document.getElementById('student')) {
+          react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('student'));
+        }
+      }), _React$createElement4), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Deposit Work"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row m-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement5 = {
+        className: "col-sm-7 "
+      }, _defineProperty(_React$createElement5, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement5, "onClick", function onClick() {
+        console.log("Yuupi");
+
+        if (document.getElementById('student')) {
+          react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById('student'));
+        }
+      }), _React$createElement5), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-6"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Check TD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
       })));
     }
   }]);
@@ -86287,6 +86361,104 @@ function (_Component) {
 
 if (document.getElementById('root')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AdminPage, null), document.getElementById('root')); //ReactDOM.render(<h1>LINA</h1>, document.getElementById('root'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ContacteProfile.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/ContacteProfile.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Contact; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var Contact =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Contact, _Component);
+
+  function Contact() {
+    _classCallCheck(this, Contact);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Contact).apply(this, arguments));
+  }
+
+  _createClass(Contact, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
+        className: "w-auto  mt-5 contact ",
+        id: "Contact"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row pt-4 pb-1"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "cw  "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Contact us")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "cw  pl-2"
+      }, "Question ? We\u2019ve got answers", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), " try us."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn-block btns p-2 "
+      }, "Email us"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "cw "
+      }, "Who are we ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "cw  pl-2"
+      }, "Haddad Zineddine", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Mazdour Lina", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Zatout Badreddine", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-2"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "cw "
+      }, "Stay tuned"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "cw  pl-2"
+      }, "Connect with us an stay in the loop"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-1"
+      })));
+    }
+  }]);
+
+  return Contact;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('footerprofile')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Contact, null), document.getElementById('footerprofile'));
 }
 
 /***/ }),
@@ -86514,7 +86686,7 @@ function (_Component) {
         className: "w-auto  mt-5 ",
         id: "Contact"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row pt-5 pb-4"
+        className: "row pt-4 pb-1"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -86775,7 +86947,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-5 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "img-fluid animated tada ",
+        className: "img-fluid animated  ",
         src: _images_Cover_png__WEBPACK_IMPORTED_MODULE_2___default.a
       })));
     }
@@ -86995,7 +87167,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
         expand: "lg",
         variant: "dark",
-        className: "navbargs p-4 "
+        className: "navbargs  "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
         href: "#home"
       }, "ISchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
@@ -87020,6 +87192,88 @@ function (_Component) {
 
 if (document.getElementById('menu')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Menu, null), document.getElementById('menu'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/NavbarProfile.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/NavbarProfile.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MenuProfile; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var MenuProfile =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(MenuProfile, _Component);
+
+  function MenuProfile() {
+    _classCallCheck(this, MenuProfile);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MenuProfile).apply(this, arguments));
+  }
+
+  _createClass(MenuProfile, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
+        expand: "lg",
+        className: "navbargsprofile shadow p-3 mb-5 bg-white rounded "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
+        href: "#home"
+      }, "ISchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
+        "aria-controls": "basic-navbar-nav"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Collapse, {
+        id: "basic-navbar-nav",
+        className: "justify-content-end"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+        className: "pr-3"
+      }, "Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+        className: "nav-link",
+        href: "#"
+      }, "Logout"))));
+    }
+  }]);
+
+  return MenuProfile;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('menuprofile')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuProfile, null), document.getElementById('menuprofile'));
 }
 
 /***/ }),
@@ -87195,7 +87449,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2",
+        className: "col-sm-2 ",
         onClick: function onClick() {
           console.log("Yuupi");
 
@@ -87270,7 +87524,7 @@ function (_Component) {
 
 
 if (document.getElementById('student')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StudentPage, null), document.getElementById('student')); //ReactDOM.render(<h1>LINA</h1>, document.getElementById('student'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StudentPage, null), document.getElementById('student'));
 }
 
 ;

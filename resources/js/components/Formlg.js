@@ -32,6 +32,7 @@ export default class Form extends Component {
     e.preventDefault();
    
     axios.post('/api/setlogin', this.state).then(response => {
+      console.log(response.data);
       if (response.data == 0) {
         this.setState({
           msg: 
@@ -42,7 +43,7 @@ export default class Form extends Component {
       }else{
         this.setState({
           msg: 
-          <div class="alert alert-success">
+          <div className="alert alert-success">
              <strong>Success !</strong> Correct .
            </div>
         })

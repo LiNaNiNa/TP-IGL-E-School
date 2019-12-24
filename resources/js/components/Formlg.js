@@ -43,7 +43,7 @@ export default class Form extends Component {
       }else{
         this.setState({
           msg: 
-          <div class="alert alert-success">
+          <div className="alert alert-success">
              <strong>Success !</strong> Correct .
            </div>
         })

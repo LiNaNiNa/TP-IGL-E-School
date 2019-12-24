@@ -8,3 +8,7 @@ Route::post('home/admin','AdminController@storeEns');
 Route::get('/form', function () {
     return view('Form');
 });
+
+Route::get('/student', function () {
+    return view('Student');
+});

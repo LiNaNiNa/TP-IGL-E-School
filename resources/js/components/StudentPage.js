@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Card} from 'react-bootstrap';
-import Core from './CoreAdmin';
+import Core from './CoreStudent';
 import img from './teacher.png'
 
-export default class AdminPage extends Component {
+export default class StudentPage extends Component {
 render() {
 return (
         <div className="mt-5">
@@ -12,15 +12,15 @@ return (
                 <div className="col-sm-2"></div>
                 <div className="col-sm-2" onClick={()=> {
                     console.log("Yuupi");
-                    if (document.getElementById('root')) {
+                    if (document.getElementById('student')) {
                     ReactDOM.render(
-                    <Core />, document.getElementById('root'));
+                    <Core/>, document.getElementById('student'));
                     }
                     }}>
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
-                            <Card.Title>Ajouter Etudiant</Card.Title>
+                            <Card.Title>Show Marks</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
@@ -33,7 +33,7 @@ return (
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
-                            <Card.Title>Ajouter Enseignant</Card.Title>
+                            <Card.Title>Consult Agenda</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
@@ -46,7 +46,7 @@ return (
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
-                            <Card.Title>Make EDP</Card.Title>
+                            <Card.Title>Review Courses</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
@@ -62,7 +62,7 @@ return (
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
-                            <Card.Title>Sth else</Card.Title>
+                            <Card.Title>Deposit Work</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
@@ -75,7 +75,7 @@ return (
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={img} />
                         <Card.Body>
-                            <Card.Title>Do sth else</Card.Title>
+                            <Card.Title>Check TD</Card.Title>
                             <Card.Text>
                                 Some quick example text to build on the card title and make up the bulk of
                                 the card's content.
@@ -90,8 +90,8 @@ return (
 }
 }
 
-if (document.getElementById('root')) {
+if (document.getElementById('student')) {
 ReactDOM.render(
-<AdminPage />, document.getElementById('root'));
-//ReactDOM.render(<h1>LINA</h1>, document.getElementById('root'));
-}
+<StudentPage />, document.getElementById('student'));
+//ReactDOM.render(<h1>LINA</h1>, document.getElementById('student'));
+};

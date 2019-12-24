@@ -14,7 +14,7 @@ class CreateResultsTable extends Migration
     public function up()
     {
         Schema::create('results', function (Blueprint $table) {
-            $table->Integer('Etudiant_id')->primary();
+            $table->Integer('Etudiant_id');
             $table->String('Code_Mat',10);
             $table->Double('CC');
             $table->Double('CI');

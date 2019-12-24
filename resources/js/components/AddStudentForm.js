@@ -4,6 +4,7 @@ import { formik, Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import "./style.css"
 import axios from 'axios'
+import AdminPage from './AdminPage';
 
 export default class AddStudentForm extends Component {
     render() {
@@ -34,6 +35,14 @@ export default class AddStudentForm extends Component {
                             // redirect to the homepage
                             //history.push('/')
                             console.log(response);
+                            if (response.status ==200)
+                            {
+                                alert("Student Inserted!");
+                                if (document.getElementById('root')) {
+                                    ReactDOM.render(
+                                    <AdminPage />, document.getElementById('root'));
+                                    }                                
+                            }
                         })
                         .catch(error => {
                             /*this.setState({

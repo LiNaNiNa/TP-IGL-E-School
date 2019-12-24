@@ -15,9 +15,16 @@ class NoteController extends Controller
      */
     public function show($id)
     {
+        /*
         return view('note',[
             'notes'=>Result::Where('Etudiant_id',$id)->get()
-        ]);
+        ]);*/
+        return(response()->json([
+            'notes'=>Result::Where('Etudiant_id',$id)->get()
+        ]));  
+    
     }
+
+    //        return(response()->json(0));  
 
 }

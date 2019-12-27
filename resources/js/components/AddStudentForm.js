@@ -40,7 +40,7 @@ export default class AddStudentForm extends Component {
                                 alert("Student Inserted!");
                                 if (document.getElementById('root')) {
                                     ReactDOM.render(
-                                    <AdminPage />, document.getElementById('root'));
+                                    <AdminPage name={this.props.name}/>, document.getElementById('root'));
                                     }                                
                             }
                         })

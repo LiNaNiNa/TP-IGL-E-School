@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Card } from 'react-bootstrap';
 import Core from './CoreAdmin';
-import img from './teacher.png'
+import img from './teacher.png';
+import NavbarProfile from './NavbarProfile';
+import ContacteProfile from './ContacteProfile';
 
 export default class AdminPage extends Component {
     render() {
         return (
+            <div>
+            <NavbarProfile name={this.props.name}/>
             <div className="mt-5" >
                 <div className="row m-3 " onClick={() => {
                 console.log("Yuupi");
-                if (document.getElementById('root')) {
+                if (document.getElementById('pageprin')) {
                     ReactDOM.render(
-                        <Core />, document.getElementById('root'));
+                        <Core name={this.props.name} />, document.getElementById('pageprin'));
                 }
             }}>
 
@@ -41,13 +45,7 @@ export default class AdminPage extends Component {
                 <div className="row m-3 ">
                     <div className="col-sm-1"></div>
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " onClick={() => {
-                        console.log("Yuupi");
-                        if (document.getElementById('student')) {
-                            ReactDOM.render(
-                                <Core />, document.getElementById('student'));
-                        }
-                    }}>
+                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
                             <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
                             <div className="col-sm-2"></div>
@@ -71,13 +69,7 @@ export default class AdminPage extends Component {
                 <div className="row m-3 ">
 
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " onClick={() => {
-                        console.log("Yuupi");
-                        if (document.getElementById('student')) {
-                            ReactDOM.render(
-                                <Core />, document.getElementById('student'));
-                        }
-                    }}>
+                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
                             <div className="col-sm-6">
                                 <h2>Review Courses</h2>
@@ -100,13 +92,7 @@ export default class AdminPage extends Component {
                 <div className="row m-3">
                     <div className="col-sm-1"></div>
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " onClick={() => {
-                        console.log("Yuupi");
-                        if (document.getElementById('student')) {
-                            ReactDOM.render(
-                                <Core />, document.getElementById('student'));
-                        }
-                    }}>
+                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " o>
                         <div className="row">
                             <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
                             <div className="col-sm-2"></div>
@@ -130,13 +116,7 @@ export default class AdminPage extends Component {
                 <div className="row m-3">
 
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " onClick={() => {
-                        console.log("Yuupi");
-                        if (document.getElementById('student')) {
-                            ReactDOM.render(
-                                <Core />, document.getElementById('student'));
-                        }
-                    }}>
+                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
                             <div className="col-sm-6">
                                 <h2>Check TD</h2>
@@ -157,13 +137,10 @@ export default class AdminPage extends Component {
                 </div>
 
             </div>
+            <ContacteProfile />
+         </div>
 
         );
     }
 }
 
-if (document.getElementById('root')) {
-    ReactDOM.render(
-        <AdminPage />, document.getElementById('root'));
-    //ReactDOM.render(<h1>LINA</h1>, document.getElementById('root'));
-}

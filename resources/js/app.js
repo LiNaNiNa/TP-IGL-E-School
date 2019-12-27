@@ -22,3 +22,4 @@ require('./components/Footer');
 require('./components/Formlg');
 require('./components/NavbarProfile');
 require('./components/ContacteProfile');
+require('./components/welcompage');

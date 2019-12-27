@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {ListGroup} from 'react-bootstrap';
 import AddStudentForm from './AddStudentForm';
 import StudentPage from './StudentPage';
+import NavbarProfile from './NavbarProfile';
 import MarkStudent from './MarkStudent';
 
 
@@ -10,13 +11,14 @@ export default class CoreStudent extends Component {
     render() {
         return (
             <div>
+                <NavbarProfile name={this.props.name}/>
                 <div className="row mt-3">
                     <div className="col-sm-4">
                         <div className="row">
                             <button className="MyButton mr-4 " onClick={()=> {
-                                if (document.getElementById('student')) {
+                                if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
-                                <StudentPage />, document.getElementById('student'));
+                                <StudentPage UserID={this.props.UserID} name={this.props.name} />, document.getElementById('pageprin'));
                                 }
                                 }}>Retour</button>
                         </div>
@@ -41,7 +43,7 @@ export default class CoreStudent extends Component {
                         </div>
                     </div>
                     <div className="col-sm-8">
-                        <MarkStudent />
+                        <MarkStudent UserID={this.props.UserID} name={this.props.name} />
                     </div>
                 </div>
             </div>

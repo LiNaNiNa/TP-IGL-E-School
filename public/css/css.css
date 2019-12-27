@@ -144,6 +144,13 @@ body {
 }
 .closemg{
     cursor: pointer;
+    width: 20px; height: 20px; float: right;
+}
+.imglogo{
+    width: 80px; height: 80px;
+}
+.divlog{
+    margin-top: 30px;
 }
 
 footer {

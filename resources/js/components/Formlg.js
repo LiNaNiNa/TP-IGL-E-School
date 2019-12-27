@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
-
-
+import AdminPage from './AdminPage';
+import StudentPage from './StudentPage';
 
 export default class Form extends Component {
   constructor() {
@@ -33,7 +33,7 @@ export default class Form extends Component {
    
     axios.post('/api/setlogin', this.state).then(response => {
       console.log(response.data);
-      if (response.data == 0) {
+      if (response.data == 0) {  
         this.setState({
           msg: 
             <div className="alert alert-danger ">
@@ -41,12 +41,19 @@ export default class Form extends Component {
            </div>
         })
       }else{
-        this.setState({
-          msg: 
-          <div className="alert alert-success">
-             <strong>Success !</strong> Correct .
-           </div>
-        })
+         
+       if (response.data[0].Profil == "Etudiant") {
+        if (document.getElementById('pageprin')) {
+          ReactDOM.render(
+          <StudentPage UserID={response.data[0].Matricule} name={response.data[0].username} />, document.getElementById('pageprin'));
+          };
+       }else{
+        if (document.getElementById('pageprin')) {
+          ReactDOM.render(
+          <AdminPage UserID={response.data[0].Matricule} name={response.data[0].username} />, document.getElementById('pageprin'));
+          };
+       }
+        
       }
     }).then(error => {
       console.log(error);
@@ -87,6 +94,7 @@ export default class Form extends Component {
 if (document.getElementById('form')) {
   ReactDOM.render(<Form />, document.getElementById('form'));
 }
+
 
 
 

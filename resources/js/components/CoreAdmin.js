@@ -3,20 +3,22 @@ import ReactDOM from 'react-dom';
 import {ListGroup} from 'react-bootstrap';
 import AdminPage from './AdminPage';
 import AddStudentForm from './AddStudentForm';
+import NavbarProfile from './NavbarProfile';
 
 
 export default class CoreAdmin extends Component {
     render() {
         return (
             <div>
+                <NavbarProfile name={this.props.name} />
                 <div className="row mt-3">
                     <div className="col-sm-4">
                         <div className="row">
                             <button className="MyButton mr-4 " onClick={()=> {
                                 console.log("YUUUUUUUUUUUUUUUUUUUUUUUUUUUUpii");
-                                if (document.getElementById('root')) {
+                                if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
-                                <AdminPage />, document.getElementById('root'));
+                                <AdminPage name={this.props.name} />, document.getElementById('pageprin'));
                                 //ReactDOM.render(<h1>LINA</h1>, document.getElementById('root'));
                                 }
                                 }}>Retour</button>
@@ -42,7 +44,7 @@ export default class CoreAdmin extends Component {
                         </div>
                     </div>
                     <div className="col-sm-8">
-                        <AddStudentForm />
+                        <AddStudentForm name={this.props.name} />
                     </div>
                 </div>
             </div>

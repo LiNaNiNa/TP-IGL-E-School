@@ -16,3 +16,6 @@ Route::get('/student', function () {
 Route::get('/profile',function(){
     return view('profile');
 });
+Route::get('/hz',function(){
+    return view ('PagePrin');
+});

@@ -14,14 +14,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <script>
+         $(".login").hide();
     
-        $(document).ready(function () {
-
-           
-            
+        $(document).ready(function () {   
+            $(".login").hide();       
             $(".login").addClass("animated");
            
-            $(".login").hide();
+           
             
             $("#btnlog").click(function () {
                 $(".login").removeClass("bounceOutLeft");
@@ -42,34 +41,8 @@
 </head>
 
 <body >
-    <div id="bodyHome" >
-        <div id="menu"></div>
-        <div id="jumbotron"  ></div>
-        <div class="container mt-5">
-            <h1 class="display-5 pt-4 pb-5" align="center">Who can use this web site and what can they do ?</h1>
-            <div id="slide1"></div>
-            <div id="slide2"></div>
-            <div id="slide3"></div>
-        </div>
-        <div id="footer"></div>
-    </div>
-
-
-    <!---  Login    -->
-
-
-        <div class="login " id="displayelem">
-
-            <img src="img/delete.png" class="img-fluid closemg " />
-            <div class ="divlog" >
-                <center class="pt-4"> <img src="img/user.png" class="img-fluid imglogo" /></center>
-                <h3 align="center" class="cww">Sign in</h3>
-                <div id="form"></div>
-                <script type="text/javascript" src="/js/app.js"></script>
-            </div>
-        </div>
-            
-            <script type="text/javascript" src="/js/app.js"></script>
+    <div id="pageprin" ></div>
+    <script type="text/javascript" src="/js/app.js"></script>
 </body>
 
 </html>

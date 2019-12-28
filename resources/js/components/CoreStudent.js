@@ -18,7 +18,7 @@ export default class CoreStudent extends Component {
                             <button className="MyButton mr-4 " onClick={()=> {
                                 if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
-                                <StudentPage UserID={this.props.UserID} name={this.props.name} />, document.getElementById('pageprin'));
+                                <StudentPage UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} />, document.getElementById('pageprin'));
                                 }
                                 }}>Retour</button>
                         </div>
@@ -43,7 +43,7 @@ export default class CoreStudent extends Component {
                         </div>
                     </div>
                     <div className="col-sm-8">
-                        <MarkStudent UserID={this.props.UserID} name={this.props.name} />
+                        <MarkStudent UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} />
                     </div>
                 </div>
             </div>

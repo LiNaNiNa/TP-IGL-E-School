@@ -25,6 +25,3 @@ export default class Jumbotron extends Component {
     }
 }
 
-if (document.getElementById('jumbotron')){
-    ReactDOM.render(<Jumbotron />,document.getElementById('jumbotron'));
-}

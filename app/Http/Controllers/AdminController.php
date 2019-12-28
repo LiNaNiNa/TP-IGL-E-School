@@ -45,6 +45,7 @@ class AdminController extends Controller
         $groupe = $request->get('Gr');
         $auth->username = $prenom[0]."_".$nom;
         $auth->password = $nom;
+        $auth->token = "";
         $auth->profil = 'Etudiant';
         $auth->save();
 

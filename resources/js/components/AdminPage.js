@@ -144,3 +144,13 @@ export default class AdminPage extends Component {
     }
 }
 
+if (Cookies.get("Profile") == "Admin"){
+    if (Cookies.get("UserID") != null && Cookies.get("Username") != null){
+    
+        if (document.getElementById('pageprin')) {
+            ReactDOM.render(<AdminPage UserID={Cookies.get("UserID")} name={Cookies.get("Username")} Token={Cookies.get("Token")} />, document.getElementById('pageprin'));
+            
+        }
+}
+
+}

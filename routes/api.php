@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/AddEtud', 'AdminController@storeEtud');
-Route::get('/Marks/{id}', 'NoteController@show');
+Route::get('/Marks/{token}', 'NoteController@show');
 Route::post('/setlogin','HomeController@store');
+Route::post('/insertToken','HomeController@storeToken');

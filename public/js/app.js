@@ -89314,6 +89314,18 @@ function (_Component) {
 
 
 
+if (Cookies.get("Profile") == "Admin") {
+  if (Cookies.get("UserID") != null && Cookies.get("Username") != null) {
+    if (document.getElementById('pageprin')) {
+      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AdminPage, {
+        UserID: Cookies.get("UserID"),
+        name: Cookies.get("Username"),
+        Token: Cookies.get("Token")
+      }), document.getElementById('pageprin'));
+    }
+  }
+}
+
 /***/ }),
 
 /***/ "./resources/js/components/ContacteProfile.js":
@@ -89584,7 +89596,8 @@ function (_Component) {
           if (document.getElementById('pageprin')) {
             react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StudentPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
               UserID: _this.props.UserID,
-              name: _this.props.name
+              name: _this.props.name,
+              Token: _this.props.Token
             }), document.getElementById('pageprin'));
           }
         }
@@ -89594,7 +89607,8 @@ function (_Component) {
         className: "col-sm-8"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MarkStudent__WEBPACK_IMPORTED_MODULE_6__["default"], {
         UserID: this.props.UserID,
-        name: this.props.name
+        name: this.props.name,
+        Token: this.props.Token
       }))));
     }
   }]);
@@ -89760,6 +89774,7 @@ function (_Component) {
     _this.state = {
       name: '',
       pass: '',
+      token: '',
       msg: ''
     };
     return _this;
@@ -89795,11 +89810,35 @@ function (_Component) {
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Warning !"), " username OR password is Incorrect .")
           });
         } else {
+          var token = Math.random().toString(36).substr(2, 8) + "@" + response.data[0].Matricule;
+
+          _this2.setState({
+            token: token
+          });
+
+          console.log(token);
+          axios.post('/api/insertToken', _this2.state).then(function (response) {
+            console.log(response.data);
+          });
+          Cookies.set("UserID", response.data[0].Matricule, {
+            expires: 365
+          });
+          Cookies.set("Token", token, {
+            expires: 365
+          });
+          Cookies.set("Username", response.data[0].username, {
+            expires: 365
+          });
+          Cookies.set("Profile", response.data[0].Profil, {
+            expires: 365
+          });
+
           if (response.data[0].Profil == "Etudiant") {
             if (document.getElementById('pageprin')) {
               react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_StudentPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
                 UserID: response.data[0].Matricule,
-                name: response.data[0].username
+                name: response.data[0].username,
+                Token: token
               }), document.getElementById('pageprin'));
             }
 
@@ -89808,7 +89847,8 @@ function (_Component) {
             if (document.getElementById('pageprin')) {
               react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
                 UserID: response.data[0].Matricule,
-                name: response.data[0].username
+                name: response.data[0].username,
+                Token: _this2.state.token
               }), document.getElementById('pageprin'));
             }
 
@@ -89863,10 +89903,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-
-if (document.getElementById('form')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Form, null), document.getElementById('form'));
-}
 
 /***/ }),
 
@@ -89950,10 +89986,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-
-if (document.getElementById('jumbotron')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Jumbotron, null), document.getElementById('jumbotron'));
-}
 
 /***/ }),
 
@@ -90041,7 +90073,7 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      var str = '/api/Marks/' + this.props.UserID;
+      var str = '/api/Marks/' + this.props.Token;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(str).then(function (response) {
         console.log(response);
 
@@ -90260,6 +90292,9 @@ function (_Component) {
         href: "/hz",
         onClick: function onClick() {
           console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
+          Cookies.remove('UserID');
+          Cookies.remove('Profile');
+          Cookies.remove('Username');
         }
       }, "Logout"))));
     }
@@ -90270,10 +90305,6 @@ function (_Component) {
 
 
 ;
-
-if (document.getElementById('menuprofile')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(MenuProfile, null), document.getElementById('menuprofile'));
-}
 
 /***/ }),
 
@@ -90399,12 +90430,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _CoreStudent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CoreStudent */ "./resources/js/components/CoreStudent.js");
-/* harmony import */ var _teacher_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./teacher.png */ "./resources/js/components/teacher.png");
-/* harmony import */ var _teacher_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_teacher_png__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _NavbarProfile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NavbarProfile */ "./resources/js/components/NavbarProfile.js");
-/* harmony import */ var _ContacteProfile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ContacteProfile */ "./resources/js/components/ContacteProfile.js");
+/* harmony import */ var _CoreStudent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CoreStudent */ "./resources/js/components/CoreStudent.js");
+/* harmony import */ var _teacher_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./teacher.png */ "./resources/js/components/teacher.png");
+/* harmony import */ var _teacher_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_teacher_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _NavbarProfile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NavbarProfile */ "./resources/js/components/NavbarProfile.js");
+/* harmony import */ var _ContacteProfile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ContacteProfile */ "./resources/js/components/ContacteProfile.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -90435,8 +90466,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var StudentPage =
 /*#__PURE__*/
-function (_Component) {
-  _inherits(StudentPage, _Component);
+function (_React$Component) {
+  _inherits(StudentPage, _React$Component);
 
   function StudentPage() {
     _classCallCheck(this, StudentPage);
@@ -90450,7 +90481,7 @@ function (_Component) {
       var _this = this,
           _React$createElement4;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarProfile__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarProfile__WEBPACK_IMPORTED_MODULE_4__["default"], {
         name: this.props.name
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-5"
@@ -90458,9 +90489,10 @@ function (_Component) {
         className: "row m-3 ",
         onClick: function onClick() {
           if (document.getElementById('pageprin')) {
-            react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreStudent__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreStudent__WEBPACK_IMPORTED_MODULE_2__["default"], {
               UserID: _this.props.UserID,
-              name: _this.props.name
+              name: _this.props.name,
+              Token: _this.props.Token
             }), document.getElementById('pageprin'));
           }
         }
@@ -90472,13 +90504,13 @@ function (_Component) {
         className: "row "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Show Marks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Show Mark"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2 "
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4 "
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90497,7 +90529,7 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90520,7 +90552,7 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90539,7 +90571,7 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -90562,19 +90594,31 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _teacher_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _teacher_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContacteProfile__WEBPACK_IMPORTED_MODULE_6__["default"], null));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContacteProfile__WEBPACK_IMPORTED_MODULE_5__["default"], null));
     }
   }]);
 
   return StudentPage;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
+
+if (Cookies.get("Profile") == "Etudiant") {
+  if (Cookies.get("UserID") != null && Cookies.get("Username") != null) {
+    if (document.getElementById('pageprin')) {
+      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StudentPage, {
+        UserID: Cookies.get("UserID"),
+        name: Cookies.get("Username"),
+        Token: Cookies.get("Token")
+      }), document.getElementById('pageprin'));
+    }
+  }
+}
 
 /***/ }),
 
@@ -90701,19 +90745,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Menu */ "./resources/js/components/Menu.js");
 /* harmony import */ var _Jumbotron__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Jumbotron */ "./resources/js/components/Jumbotron.js");
-/* harmony import */ var _Slide__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Slide */ "./resources/js/components/Slide.js");
-/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.js");
-/* harmony import */ var _Formlg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Formlg */ "./resources/js/components/Formlg.js");
-/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/student.png */ "./resources/js/components/images/student.png");
-/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_student_png__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/admin.png */ "./resources/js/components/images/admin.png");
-/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_admin_png__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _images_delete_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./images/delete.png */ "./resources/js/components/images/delete.png");
-/* harmony import */ var _images_delete_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_images_delete_png__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _images_user_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./images/user.png */ "./resources/js/components/images/user.png");
-/* harmony import */ var _images_user_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_images_user_png__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./images/teacher.png */ "./resources/js/components/images/teacher.png");
-/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_images_teacher_png__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _StudentPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StudentPage */ "./resources/js/components/StudentPage.js");
+/* harmony import */ var _Slide__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Slide */ "./resources/js/components/Slide.js");
+/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Footer */ "./resources/js/components/Footer.js");
+/* harmony import */ var _Formlg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Formlg */ "./resources/js/components/Formlg.js");
+/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/student.png */ "./resources/js/components/images/student.png");
+/* harmony import */ var _images_student_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_student_png__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./images/admin.png */ "./resources/js/components/images/admin.png");
+/* harmony import */ var _images_admin_png__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_images_admin_png__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _images_delete_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./images/delete.png */ "./resources/js/components/images/delete.png");
+/* harmony import */ var _images_delete_png__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_images_delete_png__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _images_user_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./images/user.png */ "./resources/js/components/images/user.png");
+/* harmony import */ var _images_user_png__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_images_user_png__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./images/teacher.png */ "./resources/js/components/images/teacher.png");
+/* harmony import */ var _images_teacher_png__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_images_teacher_png__WEBPACK_IMPORTED_MODULE_12__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90744,6 +90789,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var text1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
   className: "display-6 "
 }, "The student can check his notes. ");
@@ -90756,8 +90802,8 @@ var text3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
 
 var Welcompage =
 /*#__PURE__*/
-function (_Component) {
-  _inherits(Welcompage, _Component);
+function (_React$Component) {
+  _inherits(Welcompage, _React$Component);
 
   function Welcompage() {
     _classCallCheck(this, Welcompage);
@@ -90775,45 +90821,46 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "display-5 pt-4 pb-5",
         align: "center"
-      }, "Who can use this web site and what can they do ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, "Who can use this web site and what can they do ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text1,
-        ImgS: _images_student_png__WEBPACK_IMPORTED_MODULE_7___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        ImgS: _images_student_png__WEBPACK_IMPORTED_MODULE_8___default.a
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text2,
-        ImgS: _images_admin_png__WEBPACK_IMPORTED_MODULE_8___default.a
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        ImgS: _images_admin_png__WEBPACK_IMPORTED_MODULE_9___default.a
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text3,
-        ImgS: _images_teacher_png__WEBPACK_IMPORTED_MODULE_11___default.a
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        ImgS: _images_teacher_png__WEBPACK_IMPORTED_MODULE_12___default.a
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login ",
         id: "displayelem"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _images_delete_png__WEBPACK_IMPORTED_MODULE_9___default.a,
+        src: _images_delete_png__WEBPACK_IMPORTED_MODULE_10___default.a,
         className: "img-fluid closemg "
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "divlog"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", {
         className: "pt-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: _images_user_png__WEBPACK_IMPORTED_MODULE_10___default.a,
+        src: _images_user_png__WEBPACK_IMPORTED_MODULE_11___default.a,
         className: "img-fluid  imglogo"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         align: "center",
         className: "cww"
-      }, "Sign in"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Formlg__WEBPACK_IMPORTED_MODULE_6__["default"], null))));
+      }, "Sign in"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Formlg__WEBPACK_IMPORTED_MODULE_7__["default"], null))));
     }
   }]);
 
   return Welcompage;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
+console.log(Cookies.get("UserID"));
 
-if (document.getElementById('pageprin')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Welcompage, null), document.getElementById('pageprin'));
+if (Cookies.get("UserID") == null || Cookies.get("Username") == null || Cookies.get("Profile") == null) {
+  if (document.getElementById('pageprin')) {
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Welcompage, null), document.getElementById('pageprin'));
+  }
 }
-
-;
 
 /***/ }),
 

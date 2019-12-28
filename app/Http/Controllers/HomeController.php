@@ -43,6 +43,19 @@ class HomeController extends Controller
 
     }
 
+    public function storeToken(Request $request)
+    {
+    
+        $ID = explode("@", $request);
+        $UserId = $ID[1];
+        Authen::where('Matricule',$UserId)->update(array(
+            'Token'=>$request->get("token"),
+               ));   
+       return response()->json($request->get("token"));
+     
+
+    }
+
     /**
      * Display the specified resource.
      *

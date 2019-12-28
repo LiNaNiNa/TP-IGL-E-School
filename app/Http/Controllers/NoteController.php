@@ -13,15 +13,20 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($token)
     {
         /*
         return view('note',[
             'notes'=>Result::Where('Etudiant_id',$id)->get()
         ]);*/
+
+        $ID = explode("@", $token);
+        $UserId = $ID[1];
+
         return(response()->json([
-            'notes'=>Result::Where('Etudiant_id',$id)->get()
+            'notes'=>Result::Where('Etudiant_id',$UserId)->get()
         ]));  
+        
     
     }
 

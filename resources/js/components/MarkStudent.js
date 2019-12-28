@@ -34,7 +34,7 @@ export default class MarkStudent extends Component {
     componentDidMount(){
 
         
-        var str = '/api/Marks/'+this.props.UserID;
+        var str = '/api/Marks/'+this.props.Token;
 
         axios.get(str).then(response => {
             console.log(response);

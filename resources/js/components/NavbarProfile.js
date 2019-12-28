@@ -20,6 +20,9 @@ export default class MenuProfile extends Component {
                     
                           <Nav.Link className="nav-link"  href="/hz" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
+                                Cookies.remove('UserID')
+                                Cookies.remove('Profile')
+                                Cookies.remove('Username')
                                 
                                 }}
                                 >Logout</Nav.Link>
@@ -33,6 +36,3 @@ export default class MenuProfile extends Component {
     }
 };
 
-if (document.getElementById('menuprofile')) {
-    ReactDOM.render(<MenuProfile />, document.getElementById('menuprofile'));
-}

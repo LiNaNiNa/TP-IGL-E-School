@@ -11,6 +11,7 @@ export default class Form extends Component {
     this.state = {
       name: '',
       pass: '',
+      token:'',
       msg: ''
     }
   }
@@ -41,16 +42,34 @@ export default class Form extends Component {
            </div>
         })
       }else{
+        var token = Math.random().toString(36).substr(2, 8)+"@"+response.data[0].Matricule;
+        this.setState({
+          token:token
+        })
+        console.log(token);
+   
+        
+        axios.post('/api/insertToken',this.state ).then(response => {
+
+          console.log(response.data)
+         });
+        
+    
+        Cookies.set("UserID",response.data[0].Matricule,{ expires: 365 });
+        Cookies.set("Token",token,{ expires: 365 });
+        Cookies.set("Username",response.data[0].username,{ expires: 365 });
+        Cookies.set("Profile",response.data[0].Profil,{ expires: 365 });
+       
          
        if (response.data[0].Profil == "Etudiant") {
         if (document.getElementById('pageprin')) {
           ReactDOM.render(
-          <StudentPage UserID={response.data[0].Matricule} name={response.data[0].username} />, document.getElementById('pageprin'));
+          <StudentPage UserID={response.data[0].Matricule} name={response.data[0].username} Token={token}  />, document.getElementById('pageprin'));
           };
        }else{
         if (document.getElementById('pageprin')) {
           ReactDOM.render(
-          <AdminPage UserID={response.data[0].Matricule} name={response.data[0].username} />, document.getElementById('pageprin'));
+          <AdminPage UserID={response.data[0].Matricule} name={response.data[0].username}  Token={this.state.token}  />, document.getElementById('pageprin'));
           };
        }
         
@@ -91,9 +110,6 @@ export default class Form extends Component {
   }
 }
 
-if (document.getElementById('form')) {
-  ReactDOM.render(<Form />, document.getElementById('form'));
-}
 
 
 

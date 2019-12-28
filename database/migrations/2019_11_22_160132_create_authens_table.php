@@ -18,6 +18,7 @@ class CreateAuthensTable extends Migration
             $table->String('username',120);
             $table->String('password',120);
             $table->String('Profil',50);
+            $table->String('Token');
             $table->timestamps();
         });
     }

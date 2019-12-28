@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Menu from './Menu';
 import Jumbotron from './Jumbotron';
+import StudentPage from './StudentPage';
 import Slide from './Slide';
 import Footer from './Footer';
 import Formlg from './Formlg';
@@ -14,7 +15,10 @@ const text1 = <h3 className="display-6 ">The student can check his notes. </h3>;
 const text2 = <h3 className="display-6 " >The admintrator can manage the notes of students. </h3>;
 const text3 = <h3 className="display-6" >The teacher can put the notes of students. </h3>;
 
-export default class Welcompage extends Component {
+
+
+
+export default class Welcompage extends  React.Component {
     render() {
         return (
             <div>
@@ -47,9 +51,9 @@ export default class Welcompage extends Component {
     }
 
 }
-if (document.getElementById('pageprin')) {
-    ReactDOM.render(
-    <Welcompage />, document.getElementById('pageprin'));
-    };
-    
-
+console.log(Cookies.get("UserID"));
+if (Cookies.get("UserID") == null || Cookies.get("Username") == null || Cookies.get("Profile") == null){
+    if (document.getElementById('pageprin')) {
+        ReactDOM.render(<Welcompage />, document.getElementById('pageprin'));
+    }
+}

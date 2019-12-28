@@ -145,7 +145,7 @@ export default class StudentPage extends React.Component {
 }
 
 
-if (Cookies.get("Profile") == "Etudiant"){
+if ((Cookies.get("Profile") == "Etudiant")||(Cookies.get("Profile") == "etudiant")){
     if (Cookies.get("UserID") != null && Cookies.get("Username") != null){
     
         if (document.getElementById('pageprin')) {

@@ -6,8 +6,22 @@ import axios from 'axios'
 export default class MarkStudent extends Component {
     constructor(props){
         super(props);
-        this.state = { notes: [],};
+        this.state = { notes: [], done:false,};
+
+        var str = '/api/Marks/'+this.props.Token;
+
+        axios.get(str).then(response => {
+            console.log(response);
+            this.setState({
+                notes: response.data.notes,
+                done:true
+            });
+            console.log(this.state.notes);
+            console.log(response.data.notes);
+          });
+                  
     }
+
 
  /*   ShowRow(module){
         return(
@@ -31,49 +45,56 @@ export default class MarkStudent extends Component {
         return this.ShowRow(this.state.notes[0]);
 }*/
 
-    componentDidMount(){
+    componentWillMount(){        
 
-        
-        var str = '/api/Marks/'+this.props.Token;
-
-        axios.get(str).then(response => {
-            console.log(response);
-            this.setState({
-                notes: response.data.notes,
-            });
-            console.log(this.state.notes);
-            console.log(response.data.notes);
-          });
     }
+    
     render() {
-  
-          const mods = this.state.notes.map((modul) =>             
-          <tr>
-          <td>{modul.Code_Mat}</td>
-          <td>{modul.CC}</td>
-          <td>{modul.CI}</td>
-          <td>{modul.TP}</td>
-          <td>{modul.CF}</td>
-          </tr> )
-
-        return (
-            <Table striped bordered hover responsive>
-            <thead>
-                <tr>
-                <th>Module</th>
-                <th>CC</th>
-                <th>CI</th>
-                <th>TP</th>
-                <th>CF</th>
-                </tr>
-            </thead>
-            <tbody>
-
-{mods}
-
-            </tbody>
-            </Table>
-        );
+        if (this.state.done == false)
+        {
+            return(
+                <h1>We are looking for your marks in the our Data Base. Please be patient ^^ </h1>
+            )            
+        }
+        else
+        {
+            if (this.state.notes.length==0)
+            {
+                return(
+                    <h1>There are no marks available! Please check again in the upcoming hours :)</h1>
+                )
+            }
+            else
+            {
+                return (
+                    <Table striped bordered hover responsive>
+                    <thead>
+                        <tr>
+                        <th>Module</th>
+                        <th>CC</th>
+                        <th>CI</th>
+                        <th>TP</th>
+                        <th>CF</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        {
+                            this.state.notes.map((modul) =>             
+                            <tr>
+                            <td>{modul.Code_Mat}</td>
+                            <td>{modul.CC}</td>
+                            <td>{modul.CI}</td>
+                            <td>{modul.TP}</td>
+                            <td>{modul.CF}</td>
+                            </tr> 
+                            )
+                        }
+                    </tbody>
+                    </Table>
+                );
+            }
+        }
     }
 /*
     render() {

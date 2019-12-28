@@ -20,10 +20,10 @@ export default class MenuProfile extends Component {
                     
                           <Nav.Link className="nav-link"  href="/hz" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
-                                Cookies.remove('UserID')
-                                Cookies.remove('Profile')
-                                Cookies.remove('Username')
-                                
+                                Cookies.remove('UserID');
+                                Cookies.remove('Profile');
+                                Cookies.remove('Username');
+                                Cookies.remove('Token');
                                 }}
                                 >Logout</Nav.Link>
                              

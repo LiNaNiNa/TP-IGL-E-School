@@ -92,7 +92,7 @@ export default class AdminPage extends Component {
                 <div className="row m-3">
                     <div className="col-sm-1"></div>
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " o>
+                    <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
                         <div className="row">
                             <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
                             <div className="col-sm-2"></div>
@@ -144,13 +144,10 @@ export default class AdminPage extends Component {
     }
 }
 
-if (Cookies.get("Profile") == "Admin"){
-    if (Cookies.get("UserID") != null && Cookies.get("Username") != null){
-    
+if ((Cookies.get("Profile") == "Admin")||(Cookies.get("Profile") == "admin")){
+    if ((Cookies.get("UserID") != null) && (Cookies.get("Username") != null)){    
         if (document.getElementById('pageprin')) {
-            ReactDOM.render(<AdminPage UserID={Cookies.get("UserID")} name={Cookies.get("Username")} Token={Cookies.get("Token")} />, document.getElementById('pageprin'));
-            
+            ReactDOM.render(<AdminPage UserID={Cookies.get("UserID")} name={Cookies.get("Username")} Token={Cookies.get("Token")} />, document.getElementById('pageprin'));            
         }
 }
-
 }

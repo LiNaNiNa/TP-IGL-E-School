@@ -89013,8 +89013,6 @@ function (_Component) {
   _createClass(AddStudentForm, [{
     key: "render",
     value: function render() {
-      var _this = this;
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Formik"], {
         initialValues: {
           firstName: "",
@@ -89025,13 +89023,12 @@ function (_Component) {
           groupe: 0
         },
         validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__["object"]({
-          firstName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(15, 'Must be 15 characters or less').required('Required'),
-          lastName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(15, 'Must be 15 characters or less').required('Required'),
-          dateDeNaissance: yup__WEBPACK_IMPORTED_MODULE_3__["date"]() //.max(new Date(1999,9,28),"Must be younger") //.min(new Date(1950,10,10),"TOO OLD")
-          .required('Required'),
+          firstName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(120, 'Must be shorter than 120 letters').min(3, 'Must contains at least 3 letters').required('Required'),
+          lastName: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(120, 'Must be shorter than 120 letters').min(3, 'Must contains at least 3 letters').required('Required'),
+          dateDeNaissance: yup__WEBPACK_IMPORTED_MODULE_3__["date"]().max(new Date(), "Error! The student is too young").min(new Date(1950, 10, 10), "Error! The student is too old").required('Required'),
           promo: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().oneOf(["1CP", "2CP", "1CS", "2CS", "3CS"], 'INVALID VALUE').required('Required'),
-          section: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(1, 'Choissisez Une seule lettre').required('Required'),
-          groupe: yup__WEBPACK_IMPORTED_MODULE_3__["number"]().max(10, 'impossible').min(1, 'Must be at least one group').required('Required')
+          section: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().max(2, 'Maximum Two caracters!').required('Required'),
+          groupe: yup__WEBPACK_IMPORTED_MODULE_3__["number"]().max(50, 'iVerify the entred number').min(1, 'Must be at least one group').required('Required')
         }),
         onSubmit: function onSubmit(values, _ref) {
           var setSubmitting = _ref.setSubmitting;
@@ -89052,17 +89049,34 @@ function (_Component) {
             if (response.status == 200) {
               alert("Student Inserted!");
 
-              if (document.getElementById('root')) {
+              if (document.getElementById('pageprin')) {
                 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                  name: _this.props.name
-                }), document.getElementById('root'));
+                  UserID: Cookies.get("UserID"),
+                  name: Cookies.get("Username"),
+                  Token: Cookies.get("Token")
+                }), document.getElementById('pageprin'));
               }
+              /*if (document.getElementById('root')) {
+                  ReactDOM.render(
+                  <AdminPage name={this.props.name}/>, document.getElementById('root'));
+                  console.log("True");
+                  }  */
+
             }
           })["catch"](function (error) {
             /*this.setState({
             errors: error.response.data.errors
             })*/
+            alert("Error during the operation, Please try again.");
             console.log(error.response.data.errors);
+
+            if (document.getElementById('pageprin')) {
+              react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_AdminPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                UserID: Cookies.get("UserID"),
+                name: Cookies.get("Username"),
+                Token: Cookies.get("Token")
+              }), document.getElementById('pageprin'));
+            }
           });
           console.log("FIN");
         }
@@ -89184,8 +89198,7 @@ function (_Component) {
   _createClass(AdminPage, [{
     key: "render",
     value: function render() {
-      var _this = this,
-          _React$createElement4;
+      var _this = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarProfile__WEBPACK_IMPORTED_MODULE_5__["default"], {
         name: this.props.name
@@ -89269,9 +89282,9 @@ function (_Component) {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement4 = {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
         className: "col-sm-7 "
-      }, _defineProperty(_React$createElement4, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement4, "o", true), _React$createElement4), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4"
@@ -89314,7 +89327,7 @@ function (_Component) {
 
 
 
-if (Cookies.get("Profile") == "Admin") {
+if (Cookies.get("Profile") == "Admin" || Cookies.get("Profile") == "admin") {
   if (Cookies.get("UserID") != null && Cookies.get("Username") != null) {
     if (document.getElementById('pageprin')) {
       react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(AdminPage, {
@@ -90041,8 +90054,21 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(MarkStudent).call(this, props));
     _this.state = {
-      notes: []
+      notes: [],
+      done: false
     };
+    var str = '/api/Marks/' + _this.props.Token;
+    axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(str).then(function (response) {
+      console.log(response);
+
+      _this.setState({
+        notes: response.data.notes,
+        done: true
+      });
+
+      console.log(_this.state.notes);
+      console.log(response.data.notes);
+    });
     return _this;
   }
   /*   ShowRow(module){
@@ -90069,34 +90095,27 @@ function (_Component) {
 
 
   _createClass(MarkStudent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var str = '/api/Marks/' + this.props.Token;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get(str).then(function (response) {
-        console.log(response);
-
-        _this2.setState({
-          notes: response.data.notes
-        });
-
-        console.log(_this2.state.notes);
-        console.log(response.data.notes);
-      });
-    }
+    key: "componentWillMount",
+    value: function componentWillMount() {}
   }, {
     key: "render",
     value: function render() {
-      var mods = this.state.notes.map(function (modul) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.Code_Mat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CC), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CI), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.TP), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CF));
-      });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Table"], {
-        striped: true,
-        bordered: true,
-        hover: true,
-        responsive: true
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Module"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CI"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CF"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, mods));
+      if (this.state.done == false) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "We are looking for your marks in the our Data Base. Please be patient ^^ ");
+      } else {
+        if (this.state.notes.length == 0) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "There are no marks available! Please check again in the upcoming hours :)");
+        } else {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Table"], {
+            striped: true,
+            bordered: true,
+            hover: true,
+            responsive: true
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Module"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CI"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "TP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "CF"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.notes.map(function (modul) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.Code_Mat), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CC), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CI), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.TP), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, modul.CF));
+          })));
+        }
+      }
     }
     /*
         render() {
@@ -90295,6 +90314,7 @@ function (_Component) {
           Cookies.remove('UserID');
           Cookies.remove('Profile');
           Cookies.remove('Username');
+          Cookies.remove('Token');
         }
       }, "Logout"))));
     }
@@ -90608,7 +90628,7 @@ function (_React$Component) {
 
 
 
-if (Cookies.get("Profile") == "Etudiant") {
+if (Cookies.get("Profile") == "Etudiant" || Cookies.get("Profile") == "etudiant") {
   if (Cookies.get("UserID") != null && Cookies.get("Username") != null) {
     if (document.getElementById('pageprin')) {
       react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StudentPage, {

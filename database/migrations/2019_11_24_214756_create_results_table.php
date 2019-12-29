@@ -21,6 +21,8 @@ class CreateResultsTable extends Migration
             $table->Double('TP');
             $table->Double('CF');
             $table->Double('Moy');
+            $table->timestamps();
+            $table->unique(['Etudiant_id', 'Code_Mat']); 
         });
     }
 

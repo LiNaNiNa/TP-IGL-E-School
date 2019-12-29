@@ -12,7 +12,7 @@ export default class StudentPage extends React.Component {
             <div>
                 <NavbarProfile name={this.props.name} />
                 <div className="mt-5" >
-                    <div className="row m-3 " onClick={() => {
+                    <div className="row m-3 potm " onClick={() => {
 
                         if (document.getElementById('pageprin')) {
                             ReactDOM.render(
@@ -145,7 +145,9 @@ export default class StudentPage extends React.Component {
 }
 
 
-if ((Cookies.get("Profile") == "Etudiant")||(Cookies.get("Profile") == "etudiant")){
+if ((Cookies.get("Profile") != null) && ((Cookies.get("Profile").toUpperCase() == "ETUDIANT"))){
+
+    
     if (Cookies.get("UserID") != null && Cookies.get("Username") != null){
     
         if (document.getElementById('pageprin')) {

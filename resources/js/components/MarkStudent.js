@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {Table} from 'react-bootstrap';
 import axios from 'axios'
 
 export default class MarkStudent extends Component {
     constructor(props){
         super(props);
-        this.state = { notes: [], done:false,};
+        this.state = { notes: [], done:false};
 
         var str = '/api/Marks/'+this.props.Token;
 
@@ -53,7 +52,10 @@ export default class MarkStudent extends Component {
         if (this.state.done == false)
         {
             return(
-                <h1>We are looking for your marks in the our Data Base. Please be patient ^^ </h1>
+                
+                   <div className="loader cp "></div>
+               
+               
             )            
         }
         else
@@ -67,31 +69,38 @@ export default class MarkStudent extends Component {
             else
             {
                 return (
-                    <Table striped bordered hover responsive>
+                    <table className="table table-dark table-hover mr-2 ">
                     <thead>
-                        <tr>
+                        
+                        <tr >
                         <th>Module</th>
                         <th>CC</th>
                         <th>CI</th>
                         <th>TP</th>
                         <th>CF</th>
+                        <th>MOY</th>
                         </tr>
                     </thead>
                     <tbody>
+                        
+                            
+                        
         
                         {
-                            this.state.notes.map((modul) =>             
-                            <tr>
+                            this.state.notes.map((modul) =>   
+                            
+                            <tr className={(modul.Moy<10)? 'table-danger':'table-success' } >
                             <td>{modul.Code_Mat}</td>
                             <td>{modul.CC}</td>
                             <td>{modul.CI}</td>
                             <td>{modul.TP}</td>
                             <td>{modul.CF}</td>
+                            <td>{modul.Moy} </td>
                             </tr> 
                             )
                         }
                     </tbody>
-                    </Table>
+                    </table>
                 );
             }
         }

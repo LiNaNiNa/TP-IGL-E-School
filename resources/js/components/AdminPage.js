@@ -12,7 +12,7 @@ export default class AdminPage extends Component {
             <div>
             <NavbarProfile name={this.props.name}/>
             <div className="mt-5" >
-                <div className="row m-3 " onClick={() => {
+                <div className="row m-3 potm" onClick={() => {
                 console.log("Yuupi");
                 if (document.getElementById('pageprin')) {
                     ReactDOM.render(
@@ -144,7 +144,7 @@ export default class AdminPage extends Component {
     }
 }
 
-if ((Cookies.get("Profile") == "Admin")||(Cookies.get("Profile") == "admin")){
+if ( (Cookies.get("Profile") != null) && ((Cookies.get("Profile").toUpperCase() == "ADMIN")) ) {
     if ((Cookies.get("UserID") != null) && (Cookies.get("Username") != null)){    
         if (document.getElementById('pageprin')) {
             ReactDOM.render(<AdminPage UserID={Cookies.get("UserID")} name={Cookies.get("Username")} Token={Cookies.get("Token")} />, document.getElementById('pageprin'));            

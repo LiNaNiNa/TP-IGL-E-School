@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom'
 import student from './images/student.png'
 import admin from './images/admin.png'
 import teacher from './images/teacher.png'
-const text1=<h3 className="display-6 ">The student can check his notes. </h3>
-const text2=<h3 className="display-6 " >The admintrator can manage the notes of students. </h3>
-const text3=<h3 className="display-6" >The teacher can put the notes of students. </h3>
+
 
 export default class Slide extends Component{
     render(){
@@ -20,14 +18,3 @@ export default class Slide extends Component{
     };
 }
 
-if (document.getElementById('slide1')){
-    ReactDOM.render(<Slide textG={text1} ImgS={student} />,document.getElementById('slide1'));
-}
-
-if (document.getElementById('slide2')){
-    ReactDOM.render(<Slide textG={text2} ImgS={admin} />,document.getElementById('slide2'));
-}
-
-if (document.getElementById('slide3')){
-    ReactDOM.render(<Slide textG={text3} ImgS={teacher} />,document.getElementById('slide3'));
-}

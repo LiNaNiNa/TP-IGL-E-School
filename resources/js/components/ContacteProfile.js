@@ -44,8 +44,3 @@ export default class Contact extends   Component{
     };
 };
 
-if (document.getElementById('footerprofile')){
-    ReactDOM.render(<Contact />,document.getElementById('footerprofile'));
-}
-
-

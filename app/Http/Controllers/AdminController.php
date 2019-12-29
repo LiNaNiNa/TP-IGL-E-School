@@ -37,34 +37,44 @@ class AdminController extends Controller
         ]);*/
 
         $auth = new Authen();
-        $nom = $request->get('NomEtu');
-        $prenom = $request->get('PrenomEtu');
+        $nom = $request->get('PrenomEtu');
+        $prenom = $request->get('NomEtu');
         $dn = $request->get('Date');
         $promo = $request->get('Promo');
         $section = $request->get('Sect');
         $groupe = $request->get('Gr');
-        $auth->username = $prenom[0]."_".$nom;
-        $auth->password = $nom;
-        $auth->token = "";
-        $auth->profil = 'Etudiant';
-        $auth->save();
-
-        $data = Authen::where('username',$prenom[0]."_".$nom)->where('password',$nom)->get();
-        $mat=$data[0]->Matricule;
-
         $etud = new Etudiant();
-        $etud->Etudiant_id = $mat;
-        $etud->Nom = $nom;
-        $etud->Prenom = $prenom;
-        $etud->Date_Naissance = $dn;
-        $etud->Promo = $promo;
-        $etud->Section = $section;
-        $etud->Groupe = $groupe;
-        $etud->save();
+        $count = $etud->where('Nom',$nom)->where('Prenom',$prenom)->count();
+         if ($count == 0){
 
-        echo($etud);
-        //return redirect('/home/inscritEtud');
-        return(response()->json(0));  
+            $auth->username = $prenom[0]."_".$nom;
+            $auth->password = $prenom;
+          
+            $auth->token = "";
+            $auth->profil = 'Etudiant';
+            $auth->save();
+    
+            $data = $auth->where('username',$prenom[0]."_".$nom)->where('password',$prenom)->get();
+            $mat=$data[0]->Matricule;
+    
+           
+            $etud->Etudiant_id = $mat;
+            $etud->Nom = $nom;
+            $etud->Prenom = $prenom;
+            $etud->Date_Naissance = $dn;
+            $etud->Promo = $promo;
+            $etud->Section = $section;
+            $etud->Groupe = $groupe;
+            $etud->save();
+    
+           // echo($etud);
+            //return redirect('/home/inscritEtud');
+            return(response()->json("OK"));  
+         }else{
+            return(response()->json("NO"));  
+         }
+
+       
     }
     
     public function storeEns (Request $request)

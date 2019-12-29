@@ -16,16 +16,16 @@ export default class MenuProfile extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >
-                    <Nav.Link  className="pr-3" >{this.props.name}</Nav.Link>
+                    <Nav.Link  className="pr-3" ><i class="fas xyz fa-user-alt mr-2"></i>{this.props.name}</Nav.Link>
                     
-                          <Nav.Link className="nav-link"  href="/hz" onClick={()=> {
+                          <Nav.Link className="nav-link"  href="/" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
                                 Cookies.remove('UserID');
                                 Cookies.remove('Profile');
                                 Cookies.remove('Username');
                                 Cookies.remove('Token');
                                 }}
-                                >Logout</Nav.Link>
+                                >Logout <i class="fas xyz fa-sign-out-alt ml-2"></i></Nav.Link>
                              
                            </Nav>
                 

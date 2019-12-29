@@ -12,19 +12,20 @@ export default class CoreStudent extends Component {
         return (
             <div>
                 <NavbarProfile name={this.props.name}/>
-                <div className="row mt-3">
+                <div className="row ">
                     <div className="col-sm-4">
+                    <div className="pl-4"> 
                         <div className="row">
-                            <button className="MyButton mr-4 " onClick={()=> {
+                            <button className="MyButton lb " onClick={()=> {
                                 if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
                                 <StudentPage UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} />, document.getElementById('pageprin'));
                                 }
                                 }}>Retour</button>
                         </div>
-                        <div className="row MyButton">
-                            <ListGroup>
-                                <ListGroup.Item>
+                        <div className="row MyButton  ">
+                            <ListGroup >
+                                <ListGroup.Item variant="dark">
                                     Show Marks
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -41,9 +42,11 @@ export default class CoreStudent extends Component {
                                 </ListGroup.Item>
                             </ListGroup>
                         </div>
+                        </div>
                     </div>
-                    <div className="col-sm-8">
-                        <MarkStudent UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} />
+                    <div className="col-sm-8 ">
+                        <div className="pr-3">  <MarkStudent UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} /></div>
+                      
                     </div>
                 </div>
             </div>

@@ -12,9 +12,11 @@ export default class CoreAdmin extends Component {
             <div>
                 <NavbarProfile name={this.props.name} />
                 <div className="row mt-3">
-                    <div className="col-sm-4">
+                   
+                    <div className="col-sm-4" >
+                    <div className="pl-4">
                         <div className="row">
-                            <button className="MyButton mr-4 " onClick={()=> {
+                            <button className="MyButton lb mr-4 " onClick={()=> {
                                 console.log("YUUUUUUUUUUUUUUUUUUUUUUUUUUUUpii");
                                 if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
@@ -25,7 +27,7 @@ export default class CoreAdmin extends Component {
                         </div>
                         <div className="row MyButton">
                             <ListGroup>
-                                <ListGroup.Item>
+                                <ListGroup.Item variant="dark">
                                     Ajouter un Etudiant
                                 </ListGroup.Item>
                                 <ListGroup.Item>
@@ -42,10 +44,12 @@ export default class CoreAdmin extends Component {
                                 </ListGroup.Item>
                             </ListGroup>
                         </div>
+                        </div>
                     </div>
                     <div className="col-sm-8">
                         <AddStudentForm name={this.props.name} />
                     </div>
+                   
                 </div>
             </div>
         );

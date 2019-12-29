@@ -84,6 +84,20 @@ body {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 
 }
+.cp{
+   
+   
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  
+
+}
+
+
 
 
 .up {
@@ -298,4 +312,63 @@ contact>h6,h4{
 }
 .pmain{
     transition: 1s ease;
+}
+
+.table-success{
+    color:black !important ;
+}
+.MyButton{
+    border: 1px solid #085DCB;
+    border-radius: 0px !important;
+    background-color: #085DCB;
+    margin-right: 28px;;
+}
+
+
+.lb:hover{
+    border-radius: 0px !important;
+    background-color: white;
+    color: #085DCB;
+    
+    border: 1px solid  #085DCB ;
+}
+
+.loader {
+    border: 10px solid white; /* Light grey */
+    border-top: 10px solid #085DCB; /* Blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .cer{
+      color: red;
+  }
+  .btnadds{
+    border-radius: 0px;
+    border: 1px solid #085DCB;
+    background-color: #085DCB ;
+    width: 60% ;
+    margin-top: 28px ;
+  }
+  .btnadds:hover{
+    border-radius: 0px ;
+    background-color: white;
+    color: #085DCB;
+    
+    border: 1px solid  #085DCB ;
+}
+.calw{
+    width: 20%;
+}
+.xyz{
+    color: black;
+}
+.potm{
+    cursor: pointer;
 }

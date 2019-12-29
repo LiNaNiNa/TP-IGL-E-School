@@ -14,31 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-    <script>
-         $(".login").hide();
-    
-        $(document).ready(function () {   
-            $(".login").hide();       
-            $(".login").addClass("animated");
-           
-           
-            
-            $("#btnlog").click(function () {
-                $(".login").removeClass("bounceOutLeft");
-                $("#bodyHome").addClass("opacitybody");
-                $(".login").addClass("bounceInRight");
-                $(".login").fadeIn("slow");
-            });
-            $(".closemg").click(function () {
-                $("#bodyHome").removeClass("bounceInRight");
-                $(".login").addClass("bounceOutLeft");
-                $("#bodyHome").removeClass("opacitybody");
-                $(".login").fadeOut("slow");
-
-
-            });
-        });
-    </script>
+    <script type="text/javascript" src="/js/js.js"></script>
 </head>
 
 <body >

@@ -71,7 +71,7 @@ class AdminController extends Controller
             //return redirect('/home/inscritEtud');
             return(response()->json("OK"));  
          }else{
-            return(response()->json("NO"));  
+            return(response()->json("NO",202));  
          }
 
        

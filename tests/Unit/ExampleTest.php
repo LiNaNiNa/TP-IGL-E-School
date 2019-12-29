@@ -31,13 +31,11 @@ class ExampleTest extends TestCase
         $dataUnique = [ 'name' => 'Root', 'pass' => 'Root'];
 
         $this->post('/api/setlogin',$dataUnique)
-                -> assertStatus(200)
-                ->assertJsonCount(1);    // There is one unique match  
+                -> assertStatus(200); // success
                 
         $dataFalse = [ 'name' => 'M_Lina', 'pass' => 'Lina'];
         $this->post('/api/setlogin',$dataFalse)
-                -> assertStatus(200)
-                ->assertJsonCount(0);      // No match                      
+                -> assertStatus(202); // false !
         }
 
         public function test_AddStudent()
@@ -55,26 +53,26 @@ class ExampleTest extends TestCase
 
             $this->post('/api/AddEtud',$data)
             -> assertStatus(200);
-            //-> assertStatus(500); // false
 
-            $dataUnique = [ 'name' => 'L_Mezdour', 'pass' => 'Mezdour'];
+            $this->post('/api/AddEtud',$data)
+            -> assertStatus(202); // existe deja
+
+            $dataUnique = [ 'name' => 'M_Lina', 'pass' => 'Mezdour'];
 
             $this->post('/api/setlogin',$dataUnique)
-                    -> assertStatus(200)
-                    ->assertJsonCount(1);    // There is one unique match              
+                    -> assertStatus(200);
         }
 
         public function test_Results()
         {        
             $users = factory(Result::class, 5)->create();
     
-            $dataUnique = [ 'name' => 'L_Mezdour', 'pass' => 'Mezdour'];
+            $dataUnique = [ 'name' => 'M_Lina', 'pass' => 'Mezdour'];
 
             $this->post('/api/setlogin',$dataUnique)
-                    -> assertStatus(200)
-                    ->assertJsonCount(1);    // There is one unique match   
+                    -> assertStatus(200);
                     
-            $tokenMaker = [ 'token' => '25qd5hyz@3'];
+            $tokenMaker = [ 'token' => '25qd5hyz@2'];
 
             $response = $this->post('/api/insertToken',$tokenMaker);
             $response -> assertStatus(200);

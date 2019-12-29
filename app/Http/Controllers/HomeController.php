@@ -38,7 +38,14 @@ class HomeController extends Controller
     
        $authen = new Authen();
        $data=$authen->where('username',$request->get('name'))->where('password',$request->get('pass'))->get();
-       return response()->json($data);
+       if ($data->count() == 0)
+            {
+                return response()->json($data,202); // error !
+            }
+        else
+            {
+                return response()->json($data,200); // Success 
+            }
      
 
     }

@@ -12,19 +12,19 @@ export default class AdminPage extends Component {
             <div>
             <NavbarProfile name={this.props.name}/>
             <div className="mt-5" >
-                <div className="row m-3 potm" onClick={() => {
+                <div dusk="Option1Admin" className="row m-3 potm" onClick={() => {
                 console.log("Yuupi");
                 if (document.getElementById('pageprin')) {
                     ReactDOM.render(
                         <Core name={this.props.name} />, document.getElementById('pageprin'));
                 }
-            }}>
+                }}>
 
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-7  " className=" shadow p-5 mb-5 rounded pmain  " >
+                    <div  className="col-sm-7  " className=" shadow p-5 mb-5 rounded pmain  " >
                         <div className="row " >
                             <div className="col-sm-6 ">
-                                <h2>Show Marks</h2>
+                                <h2>Add A Student</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                         the card's content.</b>
                             </div>

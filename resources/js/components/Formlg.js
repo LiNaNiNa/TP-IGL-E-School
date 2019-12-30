@@ -37,7 +37,7 @@ export default class Form extends Component {
       if (response.data == 0) {  
         this.setState({
           msg: 
-            <div className="alert alert-danger ">
+            <div dusk="WarningMsg" className="alert alert-danger ">
               <strong>Warning !</strong> username OR password is Incorrect .
            </div>
         })
@@ -81,7 +81,7 @@ export default class Form extends Component {
   render() {
     return (
 
-      <form onSubmit={this.handlesub.bind(this)}  >
+      <form dusk="FORM1" onSubmit={this.handlesub.bind(this)}  >
   
      {this.state.msg}
       
@@ -104,7 +104,7 @@ export default class Form extends Component {
         </div>
 
 
-        <button className="p-2 btn2 btn-block p-2 mb-4">Login</button>
+        <button dusk="LoginForm" className="p-2 btn2 btn-block p-2 mb-4">Login</button>
       </form>
     );
   }

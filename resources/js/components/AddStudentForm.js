@@ -88,14 +88,14 @@ export default class AddStudentForm extends Component {
             >
                 <Form>
 
-                    <label htmlFor="firstName">Nom de Famille:</label>
-                    <Field name="firstName" type="text" />
-                  
-                    <span className="pl-3 cer"><ErrorMessage name="firstName"  /></span> 
-
-                    <label htmlFor="lastName">Prenom:</label>
+                    <label htmlFor="lastName">Nom de Famille:</label>
                     <Field name="lastName" type="text" />
-                    <span className="pl-3 cer"> <ErrorMessage name="lastName"  /></span>
+                  
+                    <span className="pl-3 cer"><ErrorMessage name="lastName"  /></span> 
+
+                    <label htmlFor="firstName">Prenom:</label>
+                    <Field name="firstName" type="text" />
+                    <span className="pl-3 cer"> <ErrorMessage name="firstName"  /></span>
 
                     <label htmlFor="dateDeNaissance">Date de naissance</label>
                     <Field name="dateDeNaissance" type="date" required="required" className="calw" />
@@ -115,7 +115,7 @@ export default class AddStudentForm extends Component {
 
                     <br></br>
 
-                     <button type="submit  " className="btnadds">Add Student</button> 
+                     <button dusk="SubmitStudent" type="submit  " className="btnadds">Add Student</button> 
 
                 </Form>
             </Formik>

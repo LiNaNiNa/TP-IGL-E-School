@@ -19,7 +19,7 @@ export default class Footer extends   Component{
                 <div className="col-sm-3">
                     <h3 className="cw">Who are we ?
                     </h3>
-                    <h5 className="cw  pl-2" >Haddad Zineddine<br />
+                    <h5 dusk="ContactNames" className="cw  pl-2" >Haddad Zineddine<br />
                         Mazdour Lina<br />
                         Zatout Badreddine<br /></h5>
                     <br />

@@ -16,7 +16,7 @@ export default class CoreAdmin extends Component {
                     <div className="col-sm-4" >
                     <div className="pl-4">
                         <div className="row">
-                            <button className="MyButton lb mr-4 " onClick={()=> {
+                            <button dusk="AdminRetour " className="MyButton lb mr-4 " onClick={()=> {
                                 console.log("YUUUUUUUUUUUUUUUUUUUUUUUUUUUUpii");
                                 if (document.getElementById('pageprin')) {
                                 ReactDOM.render(
@@ -47,7 +47,7 @@ export default class CoreAdmin extends Component {
                         </div>
                     </div>
                     <div className="col-sm-8">
-                        <AddStudentForm name={this.props.name} />
+                        <AddStudentForm  name={this.props.name} />
                     </div>
                    
                 </div>

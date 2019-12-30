@@ -14,7 +14,7 @@ export default class Jumbotron extends Component {
                         qui permetre aux etudiant ,enseignent et adminstrateur
                         des ecloes de gerer leur ecole.
                     </p>
-                    <button id="btnlog" className="btnl  glow-on-hover animated swing ">Login</button >
+                    <button id="btnlog" dusk="Login-Button" className="btnl  glow-on-hover animated swing ">Login</button >
                 </div>
                 <div className="col-sm-1"></div>
                 <div className="col-sm-5 ">

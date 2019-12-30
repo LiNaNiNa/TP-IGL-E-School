@@ -37,8 +37,8 @@ class AdminController extends Controller
         ]);*/
 
         $auth = new Authen();
-        $nom = $request->get('PrenomEtu');
-        $prenom = $request->get('NomEtu');
+        $prenom = $request->get('PrenomEtu');
+        $nom = $request->get('NomEtu');
         $dn = $request->get('Date');
         $promo = $request->get('Promo');
         $section = $request->get('Sect');

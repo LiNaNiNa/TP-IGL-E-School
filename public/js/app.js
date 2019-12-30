@@ -78172,7 +78172,7 @@ function useWaitForDOMRef(ref, onResolved) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -92342,23 +92342,23 @@ function (_Component) {
           console.log("FIN");
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "firstName"
-      }, "Nom de Famille:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
-        name: "firstName",
-        type: "text"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "pl-3 cer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
-        name: "firstName"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "lastName"
-      }, "Prenom:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      }, "Nom de Famille:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
         name: "lastName",
         type: "text"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "pl-3 cer"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
         name: "lastName"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "firstName"
+      }, "Prenom:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "firstName",
+        type: "text"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "pl-3 cer"
+      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "firstName"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "dateDeNaissance"
       }, "Date de naissance"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
@@ -92398,6 +92398,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
         name: "groupe"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        dusk: "SubmitStudent",
         type: "submit  ",
         className: "btnadds"
       }, "Add Student")));
@@ -92480,6 +92481,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-5"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        dusk: "Option1Admin",
         className: "row m-3 potm",
         onClick: function onClick() {
           console.log("Yuupi");
@@ -92498,7 +92500,7 @@ function (_Component) {
         className: "row "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Show Marks"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add A Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2 "
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4 "
@@ -92780,6 +92782,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        dusk: "AdminRetour ",
         className: "MyButton lb mr-4 ",
         onClick: function onClick() {
           console.log("YUUUUUUUUUUUUUUUUUUUUUUUUUUUUpii");
@@ -92985,6 +92988,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "cw"
       }, "Who are we ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        dusk: "ContactNames",
         className: "cw  pl-2"
       }, "Haddad Zineddine", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Mazdour Lina", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Zatout Badreddine", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
@@ -93100,6 +93104,7 @@ function (_Component) {
         if (response.data == 0) {
           _this2.setState({
             msg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              dusk: "WarningMsg",
               className: "alert alert-danger "
             }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Warning !"), " username OR password is Incorrect .")
           });
@@ -93157,6 +93162,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        dusk: "FORM1",
         onSubmit: this.handlesub.bind(this)
       }, this.state.msg, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "input-group mb-3 mt-4"
@@ -93188,6 +93194,7 @@ function (_Component) {
         placeholder: "password",
         onChange: this.changepass.bind(this)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        dusk: "LoginForm",
         className: "p-2 btn2 btn-block p-2 mb-4"
       }, "Login"));
     }
@@ -93264,6 +93271,7 @@ function (_Component) {
         className: "decription animated shake"
       }, "gestion de scolarite est une application web qui permetre aux etudiant ,enseignent et adminstrateur des ecloes de gerer leur ecole."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "btnlog",
+        dusk: "Login-Button",
         className: "btnl  glow-on-hover animated swing "
       }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
@@ -93589,6 +93597,7 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fas xyz fa-user-alt mr-2"
       }), this.props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Nav"].Link, {
+        dusk: "LogoutButton",
         className: "nav-link",
         href: "/",
         onClick: function onClick() {

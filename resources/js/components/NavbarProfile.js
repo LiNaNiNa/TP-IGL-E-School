@@ -18,7 +18,7 @@ export default class MenuProfile extends Component {
                     <Nav >
                     <Nav.Link  className="pr-3" ><i class="fas xyz fa-user-alt mr-2"></i>{this.props.name}</Nav.Link>
                     
-                          <Nav.Link className="nav-link"  href="/" onClick={()=> {
+                          <Nav.Link  dusk="LogoutButton" className="nav-link"  href="/" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
                                 Cookies.remove('UserID');
                                 Cookies.remove('Profile');

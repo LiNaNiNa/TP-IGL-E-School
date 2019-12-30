@@ -16,6 +16,5 @@ $factory->define(Result::class, function (Faker $faker) {
         'CI' => $faker->numberBetween(0,20),
         'TP' => $faker->numberBetween(0,20),
         'CF' => $faker->numberBetween(0,20),
-        'moy' => $faker->numberBetween(0,20),        
     ];
 });

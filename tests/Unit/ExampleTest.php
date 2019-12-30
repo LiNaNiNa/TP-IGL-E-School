@@ -57,7 +57,7 @@ class ExampleTest extends TestCase
             $this->post('/api/AddEtud',$data)
             -> assertStatus(202); // existe deja
 
-            $dataUnique = [ 'name' => 'M_Lina', 'pass' => 'Mezdour'];
+            $dataUnique = [ 'name' => 'L_Mezdour', 'pass' => 'Lina'];
 
             $this->post('/api/setlogin',$dataUnique)
                     -> assertStatus(200);
@@ -67,7 +67,7 @@ class ExampleTest extends TestCase
         {        
             $users = factory(Result::class, 5)->create();
     
-            $dataUnique = [ 'name' => 'M_Lina', 'pass' => 'Mezdour'];
+            $dataUnique = ['name' => 'L_Mezdour', 'pass' => 'Lina'];
 
             $this->post('/api/setlogin',$dataUnique)
                     -> assertStatus(200);

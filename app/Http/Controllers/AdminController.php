@@ -7,24 +7,29 @@ use App\Enseignant;
 use App\Etudiant;
 use Illuminate\Http\Request;
 
+/**
+ *  Controller of the 'Admin' 
+ * 
+ * Contains the functions to be done by an 'admin' profile
+ * 
+ */
+
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Store a newly created student in the dataBase.
+     * 
+     * This function analyses the $request, transmitted by the API, and recover the data of the student that is meant to be added.
+     * If the student is not in the database, he will be added successfully ( code return 200, OK )
+     * If the student is already stored, the function will return without doing further treatment.
+     * Special case: If another student have a similar username ( has the same Family Name, and the same first letter of the first name.), the student will not be added.
+     * This case is to be treated manually.
      *
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request It contains the personal data of the student to be added.
+     * @return \Illuminate\Http\Response 'OK' ( 200 ) if the addition is done, 'NO' ( 202 ) if a probleme was found.
      */
-    public function index($choix)
-    {
-        return view($choix);
-    }
+
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function storeEtud(Request $request)
     {/*
         $validatedDate = $request->validate([
@@ -76,8 +81,21 @@ class AdminController extends Controller
 
        
     }
-    
-    public function storeEns (Request $request)
+        
+    /**
+     * Store a newly created Teacher in the dataBase.
+     * 
+     * This function analyses the $request, transmitted by the API, and recover the data of the teacher that is meant to be added.
+     * If the teacher is not in the database, he will be added successfully ( code return 200 )
+     * If the student is already stored, the function will return without doing further treatment. ( code return 500 )
+     * Special case: If another teacher have a similar username ( has the same Family Name, and the same first letter of the first name.), S/He will not be added.
+     * This case is not treated.
+     * This function is still under developpement.
+     *
+     * @param \Illuminate\Http\Request $request It contains the personal data of the teacher to be added.
+     * @return \Illuminate\Http\Response ( 200 ) if the addition is done, ( 500 ) if a probleme was found.
+     */    
+    public function storeTeacher (Request $request)
     {
         $ValidatedData = $request->validate([
             'NomEnseignant' => 'required|min:4|max:120',

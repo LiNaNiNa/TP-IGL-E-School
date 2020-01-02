@@ -7,15 +7,20 @@ use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 use Facebook\WebDriver\WebDriverBy;
 
+/**
+ *  Browser Test Class using Laravel Dusk and Selenium
+ * 
+ */
 
-class ExampleTest extends DuskTestCase
+class BrowserTest extends DuskTestCase
 {
     /**
-     * A basic browser test example.
+     * A Selenium test of adding a student.
+     * It englobes also, a testing for the sign in function in its two cases : success and failure.
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testAddStudentWithBrowser()
     {
 
         $this->browse(function (Browser $browser) {

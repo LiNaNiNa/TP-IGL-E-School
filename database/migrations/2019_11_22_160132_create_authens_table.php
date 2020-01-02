@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ *  Migration Class of the table 'authens'  
+ */
+
 class CreateAuthensTable extends Migration
 {
     /**

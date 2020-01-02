@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Authen;
 use App\Http\Requests\LoginRequest;
+
+/**
+ *  Controller of the the first page ( home )
+ * 
+ * Contains the functions to be performed in this context.
+ * 
+ */
+
 class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display the first page of the webSite.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response The view of the first page.
      */
     public function index()
     {
@@ -18,21 +26,15 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Perform the authentification process.
+     * 
+     * Check whether the UserName and the Password transmitted by the request, actually exist in our database. 
+     * It return the profile ( Student, Admin or Teacher ) and the id of the User if it exists.
      *
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request COntains the data inserted by the user 
+     * @return \Illuminate\Http\Response the return code ( 200 in success or 202 in failure) and the data extracted from the table 'authens' if there is a match. 
      */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
     
@@ -50,6 +52,15 @@ class HomeController extends Controller
 
     }
 
+    /**
+     * Update the Token of a User when s/he sign in.
+     * 
+     * This Token permits the protection of the API from exteral hacking, it will be required in each API that return sensitive data.
+     *
+     * @param \Illuminate\Http\Request $request The Token generated randomly
+     * @return \Illuminate\Http\Response the return code ( 200 in success or 500 in failure) and the Token inserted.
+     */
+
     public function storeToken(Request $request)
     {
     
@@ -59,52 +70,6 @@ class HomeController extends Controller
             'Token'=>$request->get("token"),
                ));   
        return response()->json($request->get("token"));
-     
-
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

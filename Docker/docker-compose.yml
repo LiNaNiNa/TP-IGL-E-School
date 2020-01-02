@@ -1,0 +1,24 @@
+version: "3"
+services:
+
+    service1:
+        build: 
+            context: ./Inserer
+            dockerfile: Dockerfile
+        image: inserer
+        container_name: inser
+        restart: always
+        tty: true
+        ports: 
+            - "5000:80"
+    service2:
+        build: 
+            context: ./Consulter
+            dockerfile: Dockerfile
+        image: consulter
+        container_name: consult
+        restart: always
+        tty: true
+        ports: 
+            - "5001:80"
+    

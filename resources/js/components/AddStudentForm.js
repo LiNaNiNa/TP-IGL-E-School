@@ -90,16 +90,16 @@ export default class AddStudentForm extends Component {
                 
                 <Form>
 
-                    <label htmlFor="lastName">Nom de Famille:</label>
+                    <label htmlFor="lastName">First Name :</label>
                     <Field name="lastName" type="text" />
                   
                     <span className="pl-3 cer"><ErrorMessage name="lastName"  /></span> 
 
-                    <label htmlFor="firstName">Prenom:</label>
+                    <label htmlFor="firstName">Last Name :</label>
                     <Field name="firstName" type="text" />
                     <span className="pl-3 cer"> <ErrorMessage name="firstName"  /></span>
 
-                    <label htmlFor="dateDeNaissance">Date de naissance</label>
+                    <label htmlFor="dateDeNaissance">Date of Birth:</label>
                     <Field name="dateDeNaissance" type="date" required="required" className="calw" />
                     <span className="pl-3 cer"><ErrorMessage name="dateDeNaissance"   /></span>
 
@@ -111,7 +111,7 @@ export default class AddStudentForm extends Component {
                     <Field name="section" type="text" />
                     <span className="pl-3 cer"><ErrorMessage name="section"   /></span>
 
-                    <label htmlFor="groupe">Groupe</label>
+                    <label htmlFor="groupe">Group</label>
                     <Field name="groupe" type="number" />
                     <span className="pl-3 cer"><ErrorMessage name="groupe"  /></span>
 

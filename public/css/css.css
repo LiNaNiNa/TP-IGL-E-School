@@ -271,6 +271,10 @@ footer {
     width: 200px;
     height: 200px;
 }
+
+.tmv{
+    width: 372px !important;
+}
 .contact{
     background-color: white !important;
     border-top:1px solid #085DCB;

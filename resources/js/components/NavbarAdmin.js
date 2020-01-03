@@ -12,7 +12,7 @@ export default class NavbarAdmin extends Component {
            
 
             <Navbar expand="lg" className="navbargsprofile shadow p-3 mb-5 bg-white rounded "   >
-                <Navbar.Brand href="#home">MySchool</Navbar.Brand>
+                <Navbar.Brand  href="/">MySchool</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >

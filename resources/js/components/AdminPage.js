@@ -30,9 +30,10 @@ export default class AdminPage extends Component {
                     
 
                     <div className="col-sm-2"></div>
-                    <div  className="col-sm-4 p-4 tmv  " className=" shadow p-5 mb-5 bg-white rounded pmain " >
-                     <center> <h2 className="p-4  ">Add Student</h2>
-                         <img className="imgresp " src={addicon} /></center>
+                    <div  className="col-sm-4 p-4   " className=" shadow p-5 mb-5 bg-white rounded pmain " >
+                     
+                         <center> <h2 className="p-4 mr-4 ml-4 ">Add Student</h2>
+                           <img className="imgresp" src={addicon} /></center>
                         
                       
 
@@ -40,8 +41,7 @@ export default class AdminPage extends Component {
 
                     </div>
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-4 p-4  " className=" shadow p-5 mb-5 bg-white rounded pmain ">
-
+                    <div  className="col-sm-4 p-4   " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                     <center> <h2 className="p-4">Create Agendas</h2>
                            <img className="imgresp" src={consultericon} /></center>
                     </div>
@@ -55,7 +55,7 @@ export default class AdminPage extends Component {
 
                     <div className="col-sm-2"></div>
                     <div  className="col-sm-4 p-4  " className=" shadow p-5 mb-5 bg-white rounded pmain " >
-                    <center>  <h2 className="p-4  ">Add Teacher</h2>
+                    <center>  <h2 className="p-4 mr-4 ml-4 ">Add Teacher</h2>
                                 
                                 <img className="imgresp" src={workicon} /></center>
                           

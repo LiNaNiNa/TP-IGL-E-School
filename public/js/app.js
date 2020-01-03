@@ -92509,16 +92509,16 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-4 p-4 tmv  "
+        className: "col-sm-4 p-4   "
       }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "p-4  "
+        className: "p-4 mr-4 ml-4 "
       }, "Add Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgresp ",
+        className: "imgresp",
         src: _images_Add_png__WEBPACK_IMPORTED_MODULE_3___default.a
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-4 p-4  "
+        className: "col-sm-4 p-4   "
       }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "p-4"
       }, "Create Agendas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -92531,7 +92531,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
         className: "col-sm-4 p-4  "
       }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "p-4  "
+        className: "p-4 mr-4 ml-4 "
       }, "Add Teacher"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_work_png__WEBPACK_IMPORTED_MODULE_6___default.a
@@ -93864,15 +93864,15 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
         className: "col-sm-4 p-4 "
       }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "p-4  "
+        className: "p-4 mr-4 ml-4  "
       }, "Show Mark"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_homework_png__WEBPACK_IMPORTED_MODULE_4___default.a
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-4 p-4 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("cente", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "col-sm-4 p-4  "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "p-4  "
       }, "Consult Agenda"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
@@ -93882,7 +93882,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-4 p-4 "
+        className: "col-sm-4 p-4  "
       }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "p-4  "
       }, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -93891,10 +93891,10 @@ function (_React$Component) {
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-4 p-4 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "p-4"
-      }, "Check TD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4  w- auto mr-4 ml-4"
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "\xA0\xA0\xA0\xA0\xA0Check TD\xA0\xA0\xA0\xA0\xA0"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_work_png__WEBPACK_IMPORTED_MODULE_5___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

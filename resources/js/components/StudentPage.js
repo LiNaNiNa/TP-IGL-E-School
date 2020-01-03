@@ -28,7 +28,7 @@ export default class StudentPage extends React.Component {
 
                         <div className="col-sm-2"></div>
                         <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
-                            <center> <h2 className="p-4  ">Show Mark</h2>
+                            <center> <h2 className="p-4 mr-4 ml-4  ">Show Mark</h2>
                                    <img className="imgresp" src={homeicon} /></center>
                                
                                    
@@ -36,9 +36,9 @@ export default class StudentPage extends React.Component {
 
                         </div>
                         <div className="col-sm-2"></div>
-                        <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
-                     <cente><h2 className="p-4  ">Consult Agenda</h2>
-                          <img className="imgresp" src={consultericon} /></cente>     
+                        <div className="col-sm-4 p-4  " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                     <center><h2 className="p-4  ">Consult Agenda</h2>
+                          <img className="imgresp" src={consultericon} /></center>     
 
                         </div>
                         
@@ -53,7 +53,7 @@ export default class StudentPage extends React.Component {
                     
 
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                    <div className="col-sm-4 p-4  " className=" shadow p-5 mb-5 bg-white rounded pmain ">
                     <center>  <h2 className="p-4  ">Review Courses</h2>
                                 
                        <img className="imgresp" src={workicon} /></center>
@@ -65,14 +65,19 @@ export default class StudentPage extends React.Component {
 
                     </div>
                     <div className="col-sm-2"></div>
-                    <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                    <div className="col-sm-4 p-4  w- auto mr-4 ml-4" className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                    <center>  <h2 className="p-4  ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check TD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                                
+                       <img className="imgresp" src={workicon} /></center>
+                          
+                        
+                      
 
-                    <center>
 
-                        <h2 className="p-4">Check TD</h2>
-                        <img className="imgresp" src={workicon} />
-                      </center>
+
                     </div>
+
+                    
                    
 
 

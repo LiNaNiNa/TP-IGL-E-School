@@ -11,9 +11,12 @@ import admin from './images/admin.png';
 import deleteicon from './images/delete.png';
 import usericon from './images/user.png';
 import teacher from './images/teacher.png';
-const text1 = <h3 className="display-6 ">The student can check his notes. </h3>;
-const text2 = <h3 className="display-6 " >The admintrator can manage the notes of students. </h3>;
-const text3 = <h3 className="display-6" >The teacher can put the notes of students. </h3>;
+const text1 = <h3 className="display-6 ">Student  </h3>;
+const text2 = <h3 className="display-6 " >Admintrator  </h3>;
+const text3 = <h3 className="display-6" >Teacher  </h3>;
+const text4 = <h5 className="display-6 ">The student can check his notes,Consult Agenda,Review Courses,Deposit Work and Check TD.  </h5>;
+const text5 = <h5 className="display-6 " >The admintrator can manage the notes of students,Add Student,Create Agendas,Add Teacher,View all Teachers and Students. </h5>;
+const text6 = <h5 className="display-6" >The teacher can put the notes of students. </h5>;
 
 
 
@@ -27,9 +30,9 @@ export default class Welcompage extends  React.Component {
                     <Jumbotron />
                     <div className="container mt-5">
                         <h1 className="display-5 pt-4 pb-5" align="center">Who can use this web site and what can they do ?</h1>
-                        <Slide textG={text1} ImgS={student} />
-                        <Slide textG={text2} ImgS={admin} />
-                        <Slide textG={text3} ImgS={teacher} />
+                        <Slide textG={text1} textP={text4} ImgS={student} />
+                        <Slide textG={text2} textP={text5} ImgS={admin} />
+                        <Slide textG={text3} textP={text6} ImgS={teacher} />
                     </div>
                     
                     <Footer />

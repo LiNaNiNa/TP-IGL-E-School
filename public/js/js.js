@@ -12,6 +12,12 @@ $(document).ready(function () {
         $(".login").addClass("bounceInRight");
         $(".login").fadeIn("slow");
     });
+    $("#btnlogin").click(function () {
+        $(".login").removeClass("bounceOutLeft");
+        $("#bodyHome").addClass("opacitybody");
+        $(".login").addClass("bounceInRight");
+        $(".login").fadeIn("slow");
+    });
     $(".closemg").click(function () {
         $("#bodyHome").removeClass("bounceInRight");
         $(".login").addClass("bounceOutLeft");

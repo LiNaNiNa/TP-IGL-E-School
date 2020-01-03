@@ -23,9 +23,9 @@ export default class Jumbotron extends Component {
                 </ul>
 
                 <div className="col-sm-6 ">
-                    <h1 className="display-5 tw animated shake">My School</h1>
+                    <h1 className="display-5 tw animated shake">MySchool</h1>
                     <p className="decription animated shake">
-                        MySchool is a virtual School manager via the internet. It assists all the functions any educational member want to do: from making agendas to sending feedbacks.
+                       <b> MySchool</b> is a virtual School manager via the internet. It assists all the functions any educational member want to do: from making agendas to sending feedbacks.
                     </p>
                     <button id="btnlog" dusk="Login-Button" className="btnl  glow-on-hover animated swing ">Login</button >
                 </div>

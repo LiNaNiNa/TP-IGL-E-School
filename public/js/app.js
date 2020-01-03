@@ -92345,7 +92345,7 @@ function (_Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "lastName"
-      }, "Nom de Famille:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      }, "First Name :"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
         name: "lastName",
         type: "text"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -92354,7 +92354,7 @@ function (_Component) {
         name: "lastName"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "firstName"
-      }, "Prenom:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      }, "Last Name :"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
         name: "firstName",
         type: "text"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -92363,7 +92363,7 @@ function (_Component) {
         name: "firstName"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "dateDeNaissance"
-      }, "Date de naissance"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      }, "Date of Birth:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
         name: "dateDeNaissance",
         type: "date",
         required: "required",
@@ -92392,7 +92392,7 @@ function (_Component) {
         name: "section"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: "groupe"
-      }, "Groupe"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+      }, "Group"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
         name: "groupe",
         type: "number"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -92509,103 +92509,53 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7  "
-      }, "className", " shadow p-5 mb-5 rounded pmain  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2 "
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4 "
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgresp",
+        className: "col-sm-4 p-4 tmv  "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Add Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp ",
         src: _images_Add_png__WEBPACK_IMPORTED_MODULE_3___default.a
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4  "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4"
+      }, "Create Agendas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_Consulter_png__WEBPACK_IMPORTED_MODULE_7___default.a
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create Agendas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3 "
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row m-3 potm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add Teacher"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4  "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Add Teacher"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_work_png__WEBPACK_IMPORTED_MODULE_6___default.a
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4"
+      }, "View all Teachers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_check_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "View all Teachers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row m-3"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "View all students"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4  "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4"
+      }, "View all students"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_check_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
@@ -93293,9 +93243,9 @@ function (_Component) {
         className: "col-sm-6 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "display-5 tw animated shake"
-      }, "My School"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "MySchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "decription animated shake"
-      }, "MySchool is a virtual School manager via the internet. It assists all the functions any educational member want to do: from making agendas to sending feedbacks."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, " MySchool"), " is a virtual School manager via the internet. It assists all the functions any educational member want to do: from making agendas to sending feedbacks."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "btnlog",
         dusk: "Login-Button",
         className: "btnl  glow-on-hover animated swing "
@@ -93526,7 +93476,7 @@ function (_Component) {
         variant: "dark",
         className: "navbargs  "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
-        href: "#home"
+        href: "/"
       }, "MySchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
         "aria-controls": "basic-navbar-nav"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Collapse, {
@@ -93534,7 +93484,9 @@ function (_Component) {
         className: "justify-content-end"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
         className: "pr-3"
-      }, "Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "btnlogin"
+      }, "Login")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
         className: "nav-link",
         href: "#Contact"
       }, "Contact"))));
@@ -93612,7 +93564,7 @@ function (_Component) {
         expand: "lg",
         className: "navbargsprofile shadow p-3 mb-5 bg-white rounded "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Brand, {
-        href: "#home"
+        href: "/"
       }, "MySchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Toggle, {
         "aria-controls": "basic-navbar-nav"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Collapse, {
@@ -93708,7 +93660,7 @@ function (_Component) {
         expand: "lg",
         className: "navbargsprofile shadow p-3 mb-5 bg-white rounded "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Brand, {
-        href: "#home"
+        href: "/"
       }, "MySchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Toggle, {
         "aria-controls": "basic-navbar-nav"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Collapse, {
@@ -93810,7 +93762,7 @@ function (_Component) {
         className: "img-fluid "
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-5 pt-5 cp mt-5"
-      }, " ", this.props.textG, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")));
+      }, " ", this.props.textG, this.props.textP));
     }
   }]);
 
@@ -93890,8 +93842,7 @@ function (_React$Component) {
   _createClass(StudentPage, [{
     key: "render",
     value: function render() {
-      var _this = this,
-          _React$createElement4;
+      var _this = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarProfile__WEBPACK_IMPORTED_MODULE_7__["default"], {
         name: this.props.name
@@ -93911,106 +93862,56 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7  "
-      }, "className", " shadow p-5 mb-5 rounded pmain  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Show Mark"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2 "
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4 "
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Show Mark"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_homework_png__WEBPACK_IMPORTED_MODULE_4___default.a
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("cente", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Consult Agenda"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_Consulter_png__WEBPACK_IMPORTED_MODULE_6___default.a
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Consult Agenda"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3 "
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row m-3 potm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "imgresp",
+        src: _images_work_png__WEBPACK_IMPORTED_MODULE_5___default.a
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4"
+      }, "Check TD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_work_png__WEBPACK_IMPORTED_MODULE_5___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", (_React$createElement4 = {
-        className: "col-sm-7 "
-      }, _defineProperty(_React$createElement4, "className", " shadow p-5 mb-5 bg-white rounded pmain "), _defineProperty(_React$createElement4, "o", true), _React$createElement4), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "imgresp",
-        src: _images_work_png__WEBPACK_IMPORTED_MODULE_5___default.a
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Deposit Work"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row m-3"
+        className: "row m-3 potm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", _defineProperty({
-        className: "col-sm-7 "
-      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Check TD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-2"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-4"
-      }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "col-sm-4 p-4 "
+      }, "className", " shadow p-5 mb-5 bg-white rounded pmain "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "p-4  "
+      }, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
         src: _images_check_png__WEBPACK_IMPORTED_MODULE_3___default.a
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-1"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-4 p-4 "
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContacteProfile__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
@@ -94248,11 +94149,20 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 var text1 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
   className: "display-6 "
-}, "The student can check his notes. ");
+}, "Student  ");
 var text2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
   className: "display-6 "
-}, "The admintrator can manage the notes of students. ");
+}, "Admintrator  ");
 var text3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+  className: "display-6"
+}, "Teacher  ");
+var text4 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+  className: "display-6 "
+}, "The student can check his notes,Consult Agenda,Review Courses,Deposit Work and Check TD.  ");
+var text5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+  className: "display-6 "
+}, "The admintrator can manage the notes of students,Add Student,Create Agendas,Add Teacher,View all Teachers and Students. ");
+var text6 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
   className: "display-6"
 }, "The teacher can put the notes of students. ");
 
@@ -94279,12 +94189,15 @@ function (_React$Component) {
         align: "center"
       }, "Who can use this web site and what can they do ?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text1,
+        textP: text4,
         ImgS: _images_student_png__WEBPACK_IMPORTED_MODULE_8___default.a
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text2,
+        textP: text5,
         ImgS: _images_admin_png__WEBPACK_IMPORTED_MODULE_9___default.a
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], {
         textG: text3,
+        textP: text6,
         ImgS: _images_teacher_png__WEBPACK_IMPORTED_MODULE_12___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Footer__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login ",

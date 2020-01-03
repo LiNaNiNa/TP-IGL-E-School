@@ -27,120 +27,98 @@ export default class StudentPage extends React.Component {
                     }}>
 
                         <div className="col-sm-2"></div>
-                        <div className="col-sm-7  " className=" shadow p-5 mb-5 rounded pmain  " >
-                            <div className="row " >
-                                <div className="col-sm-6 ">
-                                    <h2>Show Mark</h2>
-                                    <b>Some quick example text to build on the card title and make up the bulk of
-                    the card's content.</b>
-                                </div>
-                                <div className="col-sm-2 "></div>
-                                <div className="col-sm-4 "> <img className="imgresp" src={homeicon} /></div>
-                            </div>
-
+                        <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                            <center> <h2 className="p-4  ">Show Mark</h2>
+                                   <img className="imgresp" src={homeicon} /></center>
+                               
+                                   
 
 
                         </div>
-                        <div className="col-sm-1"></div>
                         <div className="col-sm-2"></div>
+                        <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                     <cente><h2 className="p-4  ">Consult Agenda</h2>
+                          <img className="imgresp" src={consultericon} /></cente>     
+
+                        </div>
+                        
 
 
                     </div>
 
 
-                    <div className="row m-3 ">
-                        <div className="col-sm-1"></div>
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
-                            <div className="row">
-                                <div className="col-sm-4"> <img className="imgresp" src={consultericon} /></div>
-                                <div className="col-sm-2"></div>
-                                <div className="col-sm-6">
-                                    <h2>Consult Agenda</h2>
-                                    <b>Some quick example text to build on the card title and make up the bulk of
-                    the card's content.</b>
-                                </div>
 
 
-                            </div>
+                    <div  className="row m-3 potm">
+                    
 
+                    <div className="col-sm-2"></div>
+                    <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                    <center>  <h2 className="p-4  ">Review Courses</h2>
+                                
+                       <img className="imgresp" src={workicon} /></center>
+                          
+                        
+                      
 
-
-                        </div>
-
-                        <div className="col-sm-2"></div>
 
 
                     </div>
-                    <div className="row m-3 ">
+                    <div className="col-sm-2"></div>
+                    <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
 
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <h2>Review Courses</h2>
-                                    <b>Some quick example text to build on the card title and make up the bulk of
-                    the card's content.</b>
-                                </div>
-                                <div className="col-sm-2"></div>
-                                <div className="col-sm-4"> <img className="imgresp" src={workicon} /></div>
-                            </div>
+                    <center>
+
+                        <h2 className="p-4">Check TD</h2>
+                        <img className="imgresp" src={workicon} />
+                      </center>
+                    </div>
+                   
 
 
+                </div>
+                <div  className="row m-3 potm">
+                    
 
-                        </div>
-                        <div className="col-sm-1"></div>
-                        <div className="col-sm-2"></div>
+                    <div className="col-sm-2"></div>
+                    <div className="col-sm-4 p-4 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
+                    <center>  <h2 className="p-4  ">Review Courses</h2>
+                                
+                    <img className="imgresp" src={checkicon} /></center>
+                          
+                        
+                      
+
 
 
                     </div>
+                    <div className="col-sm-2"></div>
+                    <div className="col-sm-4 p-4 " >
 
-                    <div className="row m-3">
-                        <div className="col-sm-1"></div>
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " o>
-                            <div className="row">
-                                <div className="col-sm-4"> <img className="imgresp" src={workicon} /></div>
-                                <div className="col-sm-2"></div>
-                                <div className="col-sm-6">
-                                    <h2>Deposit Work</h2>
-                                    <b>Some quick example text to build on the card title and make up the bulk of
-                    the card's content.</b>
-                                </div>
-
-
-                            </div>
-
-
-
-                        </div>
-
-                        <div className="col-sm-2"></div>
-
-
+                  
                     </div>
-                    <div className="row m-3">
+                   
 
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <h2>Check TD</h2>
-                                    <b>Some quick example text to build on the card title and make up the bulk of
-                         the card's content.</b>
-                                </div>
-                                <div className="col-sm-2"></div>
-                                <div className="col-sm-4"> <img className="imgresp" src={checkicon} /></div>
-                            </div>
+
+                </div>
 
 
 
-                        </div>
-                        <div className="col-sm-1"></div>
-                        <div className="col-sm-2"></div>
 
 
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                   
 
                 </div>
                 <ContacteProfile />

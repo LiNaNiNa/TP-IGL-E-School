@@ -195,7 +195,7 @@ SHORT_NAMES            = NO
 # description.)
 # The default value is: NO.
 
-JAVADOC_AUTOBRIEF      = NO
+JAVADOC_AUTOBRIEF      = YES
 
 # If the JAVADOC_BANNER tag is set to YES then doxygen will interpret a line
 # such as
@@ -829,7 +829,10 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:\xampp\htdocs\TP-IGL-E-School\app
+INPUT                  = app \
+                         database/factories \
+                         database/migrations \
+                         tests
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -917,29 +920,16 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = C:\xampp\htdocs\TP-IGL-E-School\app\Console\Kernel.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Exceptions\Handler.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\AppServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\AuthServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\BroadcastServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\DuskServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\EventServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Providers\RouteServiceProvider.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\Authenticate.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\CheckForMaintenanceMode.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\EncryptCookies.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\RedirectIfAuthenticated.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\TrimStrings.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\TrustProxies.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Middleware\VerifyCsrfToken.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Requests\LoginRequest.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Kernel.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\ConfirmPasswordController.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\ForgotPasswordController.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\LoginController.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\RegisterController.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\ResetPasswordController.php \
-                         C:\xampp\htdocs\TP-IGL-E-School\app\Http\Controllers\Auth\VerificationController.php
+EXCLUDE                = app/Exceptions \
+                         app/Console \
+                         app/Providers \
+                         app/Http/Middleware \
+                         app/Http/Requests \
+                         app/Http/Controllers/Auth \
+                         tests/Browser/Components \
+                         tests/Browser/console \
+                         tests/Browser/Pages \
+                         app/Http/Kernel.php
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -1181,7 +1171,7 @@ ALPHABETICAL_INDEX     = YES
 # Minimum value: 1, maximum value: 20, default value: 5.
 # This tag requires that the tag ALPHABETICAL_INDEX is set to YES.
 
-COLS_IN_ALPHA_INDEX    = 5
+COLS_IN_ALPHA_INDEX    = 2
 
 # In case all classes in a project start with a common prefix, all classes will
 # be put under the same header in the alphabetical index. The IGNORE_PREFIX tag
@@ -1759,7 +1749,7 @@ EXTRA_SEARCH_MAPPINGS  =
 # If the GENERATE_LATEX tag is set to YES, doxygen will generate LaTeX output.
 # The default value is: YES.
 
-GENERATE_LATEX         = YES
+GENERATE_LATEX         = NO
 
 # The LATEX_OUTPUT tag is used to specify where the LaTeX docs will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of

@@ -1,25 +1,19 @@
-<h1 align="center" >MySchool</h1>
+Introduction
+MySchool is a virtual School manager via the internet. It assists all the functions any educational member wants to do: from making agendas to sending feedbacks.
+MySchool is the link between Teachers, students and even administration alike in the most secure way. 
+Checking Agendas, marks or even Courses, is easy, safe and fast using MySchool. 
+MySchool: a creation of ESI students that is most recommended to use.
 
-
-## Introduction
-
-- MySchool is a virtual School manager via the internet. It assists all the functions any educational member wants to do: from making agendas to sending feedbacks.
-- MySchool is the link between Teachers, students and even administration alike in the most secure way. 
-- Checking Agendas, marks or even Courses, is easy, safe and fast using MySchool. 
-- MySchool: a creation of ESI students that is most recommended to use.
-
-## Development
-
+Development:
 MySchool have been developed under a php-laravel environment using React JS library and a MySQL database.
 
-## Requirments and Installation
-
+Requirments and Installation
 In order to use this project, for developpment purposes, your machine should have:
-- Xampp ( an easy to install Apache distribution containing mySQL, PHP, and Perl. ) : [here](https://www.apachefriends.org/fr/download.html)
-- Composer ( tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. ): [here] (https://getcomposer.org/download/ )
-- Node JS ( to use ReactJS ) : from [here] ( https://nodejs.org/en/download/)
+- Xampp ( an easy to install Apache distribution containing mySQL, PHP, and Perl. ) : https://www.apachefriends.org/fr/download.html
+- Composer ( tool for dependency management in PHP. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you. ): https://getcomposer.org/download/ 
+- Node JS ( to use ReactJS ) : from https://nodejs.org/en/download/
 
-Then you should clone this project from the gitHub ( [link] ( https://github.com/LiNaNiNa/TP-IGL-E-School ) ).
+Then you should clone this project from the gitHub ( link: https://github.com/LiNaNiNa/TP-IGL-E-School )
 
 Once the project is in your local machine, run the Shell ( bash ) from its main directory.
 Perform these commands:
@@ -30,7 +24,7 @@ Perform these commands:
 
 Then, you need to open Xampp control and activate Apache and MySQL servers.
 you should follow the steps:
-1. Go to [link] (http://localhost/phpmyadmin) http://localhost/phpmyadmin using the navigator
+1. Go to http://localhost/phpmyadmin using the navigator
 2. Create a new DataBase called 'laravel' and using the utf8_unicode_ci codage.
 3. execute the command: 'php artisan migrate' in the Shell, to create the projects table.
 4. execute the command: 'vendor/phpunit/phpunit/phpunit'. it will perform some unit tests
@@ -40,7 +34,7 @@ If the result is successful, you can use our application, it contains to users:
 Else, if there is an error, please contact us.
 
 Now you should just execute the command 'php artisan serve--port=8000'
-Then go to the navigator: [link] (localhost:8000/) localhost:8000/
+Then go to the navigator: 'localhost:8000/'
 And here we are!
 
 If you want to perform a Selenium Test ( using the browser ), 
@@ -49,5 +43,4 @@ If you want to perform a Selenium Test ( using the browser ),
 a. php artisan dusk:chrome-driver xxx ( While xxx is the version of your chrome navigator, Ex 75 )
 b. Php Laravel dusk.
 
-## In case of problems, please contact us.
-
+In case of problems, please contact us.

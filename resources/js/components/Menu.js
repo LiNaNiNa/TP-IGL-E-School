@@ -6,7 +6,7 @@ export default class Menu extends Component {
     render() {
         return (
             <Navbar expand="lg" variant="dark" className="navbargs  "   >
-                <Navbar.Brand href="#home">ISchool</Navbar.Brand>
+                <Navbar.Brand href="#home">MySchool</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >

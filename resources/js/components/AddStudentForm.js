@@ -86,6 +86,8 @@ export default class AddStudentForm extends Component {
                 }
                 }
             >
+
+                
                 <Form>
 
                     <label htmlFor="lastName">Nom de Famille:</label>
@@ -115,7 +117,7 @@ export default class AddStudentForm extends Component {
 
                     <br></br>
 
-                     <button dusk="SubmitStudent" type="submit  " className="btnadds">Add Student</button> 
+                     <button dusk="SubmitStudent" type="submit  " className="btnadds lb">Add Student<i className="fas  fa-user-plus ml-2"></i></button> 
 
                 </Form>
             </Formik>

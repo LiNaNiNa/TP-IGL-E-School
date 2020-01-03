@@ -321,16 +321,16 @@ contact>h6,h4{
     border: 1px solid #085DCB;
     border-radius: 0px !important;
     background-color: #085DCB;
+    
     margin-right: 28px;;
 }
 
 
 .lb:hover{
     border-radius: 0px !important;
-    background-color: white;
-    color: #085DCB;
-    
-    border: 1px solid  #085DCB ;
+    background-color: #085DCB;
+    box-shadow: 2px 1px 5px 9px rgba(0, 0, 0, 0.15);
+   
 }
 
 .loader {
@@ -356,13 +356,7 @@ contact>h6,h4{
     width: 60% ;
     margin-top: 28px ;
   }
-  .btnadds:hover{
-    border-radius: 0px ;
-    background-color: white;
-    color: #085DCB;
-    
-    border: 1px solid  #085DCB ;
-}
+
 .calw{
     width: 20%;
 }
@@ -371,4 +365,18 @@ contact>h6,h4{
 }
 .potm{
     cursor: pointer;
+}
+
+.dangercolor{
+    background-color: #dc3545 !important;
+    color: white;
+}
+.succescolor{
+    background-color: #28a745 !important;
+    color: white;
+}
+
+.table{
+    border:0px !important;
+    background-color: #343a40 !important;
 }

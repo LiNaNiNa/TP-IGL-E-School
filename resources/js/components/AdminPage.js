@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Card } from 'react-bootstrap';
 import Core from './CoreAdmin';
-import img from './teacher.png';
+
+import addicon from './images/Add.png';
+import checkicon from './images/check.png';
+import homeicon from './images/homework.png';
+import workicon from './images/work.png';
+import consultericon from './images/Consulter.png';
 import NavbarProfile from './NavbarProfile';
 import ContacteProfile from './ContacteProfile';
 
@@ -29,7 +34,7 @@ export default class AdminPage extends Component {
                         the card's content.</b>
                             </div>
                             <div className="col-sm-2 "></div>
-                            <div className="col-sm-4 "> <img className="imgresp" src={img} /></div>
+                            <div className="col-sm-4 "> <img className="imgresp" src={addicon} /></div>
                         </div>
 
 
@@ -47,7 +52,7 @@ export default class AdminPage extends Component {
                     <div className="col-sm-2"></div>
                     <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
-                            <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
+                            <div className="col-sm-4"> <img className="imgresp" src={consultericon} /></div>
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
                                 <h2>Consult Agenda</h2>
@@ -77,7 +82,7 @@ export default class AdminPage extends Component {
                         the card's content.</b>
                             </div>
                             <div className="col-sm-2"></div>
-                            <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
+                            <div className="col-sm-4"> <img className="imgresp" src={workicon} /></div>
                         </div>
 
 
@@ -94,7 +99,7 @@ export default class AdminPage extends Component {
                     <div className="col-sm-2"></div>
                     <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
                         <div className="row">
-                            <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
+                            <div className="col-sm-4"> <img className="imgresp" src={homeicon} /></div>
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
                                 <h2>Deposit Work</h2>
@@ -124,7 +129,7 @@ export default class AdminPage extends Component {
                              the card's content.</b>
                             </div>
                             <div className="col-sm-2"></div>
-                            <div className="col-sm-4"> <img className="imgresp" src={img} /></div>
+                            <div className="col-sm-4"> <img className="imgresp" src={checkicon} /></div>
                         </div>
 
 

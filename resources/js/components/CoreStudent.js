@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {ListGroup} from 'react-bootstrap';
-import AddStudentForm from './AddStudentForm';
 import StudentPage from './StudentPage';
 import NavbarProfile from './NavbarProfile';
 import MarkStudent from './MarkStudent';
@@ -21,7 +20,7 @@ export default class CoreStudent extends Component {
                                 ReactDOM.render(
                                 <StudentPage UserID={this.props.UserID} name={this.props.name} Token={this.props.Token} />, document.getElementById('pageprin'));
                                 }
-                                }}>Retour</button>
+                                }}>Retour  <i className="fas  fa-undo-alt ml-2"></i></button>
                         </div>
                         <div className="row MyButton  ">
                             <ListGroup >

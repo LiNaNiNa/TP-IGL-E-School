@@ -12,11 +12,11 @@ export default class MenuProfile extends Component {
            
 
             <Navbar expand="lg" className="navbargsprofile shadow p-3 mb-5 bg-white rounded "   >
-                <Navbar.Brand href="#home">ISchool</Navbar.Brand>
+                <Navbar.Brand href="#home">MySchool</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >
-                    <Nav.Link  className="pr-3" ><i class="fas xyz fa-user-alt mr-2"></i>{this.props.name}</Nav.Link>
+                    <Nav.Link  className="pr-3" ><i className="fas xyz fa-user-alt mr-2"></i>{this.props.name}</Nav.Link>
                     
                           <Nav.Link  dusk="LogoutButton" className="nav-link"  href="/" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
@@ -25,7 +25,7 @@ export default class MenuProfile extends Component {
                                 Cookies.remove('Username');
                                 Cookies.remove('Token');
                                 }}
-                                >Logout <i class="fas xyz fa-sign-out-alt ml-2"></i></Nav.Link>
+                                >Logout <i className="fas xyz fa-sign-out-alt ml-2"></i></Nav.Link>
                              
                            </Nav>
                 

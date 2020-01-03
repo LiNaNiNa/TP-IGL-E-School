@@ -4,7 +4,7 @@ import {ListGroup} from 'react-bootstrap';
 import AdminPage from './AdminPage';
 import AddStudentForm from './AddStudentForm';
 import NavbarProfile from './NavbarProfile';
-
+import addicon from './images/Add.png';
 
 export default class CoreAdmin extends Component {
     render() {
@@ -23,7 +23,7 @@ export default class CoreAdmin extends Component {
                                 <AdminPage name={this.props.name} />, document.getElementById('pageprin'));
                                 //ReactDOM.render(<h1>LINA</h1>, document.getElementById('root'));
                                 }
-                                }}>Retour</button>
+                                }}>Retour <i className="fas  fa-undo-alt ml-2"></i></button>
                         </div>
                         <div className="row MyButton">
                             <ListGroup>
@@ -46,8 +46,12 @@ export default class CoreAdmin extends Component {
                         </div>
                         </div>
                     </div>
-                    <div className="col-sm-8">
+                    <div className="col-sm-5">
                         <AddStudentForm  name={this.props.name} />
+                    </div>
+                    <div className="col-sm-3">
+                    <img className="imgresp " src={addicon} />
+
                     </div>
                    
                 </div>

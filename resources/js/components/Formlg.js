@@ -55,10 +55,10 @@ export default class Form extends Component {
          });
         
     
-        Cookies.set("UserID",response.data[0].Matricule,{ expires: 365 });
+        Cookies.set("UserID",response.data[0].Matricule,{ expires: 1 });
         Cookies.set("Token",token,{ expires: 365 });
-        Cookies.set("Username",response.data[0].username,{ expires: 365 });
-        Cookies.set("Profile",response.data[0].Profil,{ expires: 365 });
+        Cookies.set("Username",response.data[0].username,{ expires: 1 });
+        Cookies.set("Profile",response.data[0].Profil,{ expires: 1 });
        
          
        if (response.data[0].Profil == "Etudiant") {

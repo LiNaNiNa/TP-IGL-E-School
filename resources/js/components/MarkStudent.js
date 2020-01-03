@@ -60,7 +60,7 @@ export default class MarkStudent extends Component {
         }
         else
         {
-            if (this.state.notes.length==0)
+            if (this.state.notes.length == 0)
             {
                 return(
                     <h1>There are no marks available! Please check again in the upcoming hours :)</h1>
@@ -69,7 +69,7 @@ export default class MarkStudent extends Component {
             else
             {
                 return (
-                    <table className="table table-dark table-hover mr-2 ">
+                    <table className="table  mr-2 ">
                     <thead>
                         
                         <tr >
@@ -89,7 +89,7 @@ export default class MarkStudent extends Component {
                         {
                             this.state.notes.map((modul) =>   
                             
-                            <tr className={(modul.Moy<10)? 'table-danger':'table-success' } >
+                            <tr className={(modul.Moy<10)? 'dangercolor':'succescolor' } >
                             <td>{modul.Code_Mat}</td>
                             <td>{modul.CC}</td>
                             <td>{modul.CI}</td>

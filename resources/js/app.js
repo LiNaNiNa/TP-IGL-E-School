@@ -23,3 +23,4 @@ require('./components/Formlg');
 require('./components/NavbarProfile');
 require('./components/ContacteProfile');
 require('./components/welcompage');
+require('./components/NavbarAdmin');

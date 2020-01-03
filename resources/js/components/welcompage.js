@@ -31,6 +31,7 @@ export default class Welcompage extends  React.Component {
                         <Slide textG={text2} ImgS={admin} />
                         <Slide textG={text3} ImgS={teacher} />
                     </div>
+                    
                     <Footer />
                 </div>
 

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Welcompage from './welcompage';
 import { Navbar, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
 
-export default class NavbarProfile extends Component {
+export default class NavbarAdmin extends Component {
 
     render() {
         return (
@@ -16,7 +16,9 @@ export default class NavbarProfile extends Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav >
+                    <Nav.Link  className="pr-3 admin" >Admin</Nav.Link>
                     <Nav.Link  className="pr-3" ><i className="fas xyz fa-user-alt mr-2"></i>{this.props.name}</Nav.Link>
+                  
                     
                           <Nav.Link  dusk="LogoutButton" className="nav-link"  href="/" onClick={()=> {
                                 console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
@@ -26,6 +28,7 @@ export default class NavbarProfile extends Component {
                                 Cookies.remove('Token');
                                 }}
                                 >Logout <i className="fas xyz fa-sign-out-alt ml-2"></i></Nav.Link>
+                                
                              
                            </Nav>
                 

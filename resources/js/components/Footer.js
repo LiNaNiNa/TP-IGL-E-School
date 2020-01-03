@@ -5,9 +5,12 @@ export default class Footer extends   Component{
     render(){
         return(
             <footer  className="w-auto  mt-5 " id="Contact">
+               
             <div className="row pt-4 pb-1">
+             
                 <div className="col-sm-1"></div>
                 <div className="col-sm-3">
+              
                     <h3 className="cw "><b>Contact us</b></h3>
                     <h5 className="cw pl-2">Question ? We’ve got
                         answers<br /> try us.</h5>
@@ -39,6 +42,7 @@ export default class Footer extends   Component{
                 </div>
                 <div className="col-sm-1"></div>
             </div>
+            
         </footer>
         );
     };

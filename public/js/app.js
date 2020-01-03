@@ -92167,6 +92167,8 @@ __webpack_require__(/*! ./components/ContacteProfile */ "./resources/js/componen
 
 __webpack_require__(/*! ./components/welcompage */ "./resources/js/components/welcompage.js");
 
+__webpack_require__(/*! ./components/NavbarAdmin */ "./resources/js/components/NavbarAdmin.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -92428,20 +92430,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
-/* harmony import */ var _CoreAdmin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CoreAdmin */ "./resources/js/components/CoreAdmin.js");
-/* harmony import */ var _images_Add_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/Add.png */ "./resources/js/components/images/Add.png");
-/* harmony import */ var _images_Add_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_Add_png__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _images_check_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/check.png */ "./resources/js/components/images/check.png");
-/* harmony import */ var _images_check_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_check_png__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _images_homework_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/homework.png */ "./resources/js/components/images/homework.png");
-/* harmony import */ var _images_homework_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_homework_png__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _images_work_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/work.png */ "./resources/js/components/images/work.png");
-/* harmony import */ var _images_work_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_work_png__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _images_Consulter_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/Consulter.png */ "./resources/js/components/images/Consulter.png");
-/* harmony import */ var _images_Consulter_png__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_Consulter_png__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _NavbarProfile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./NavbarProfile */ "./resources/js/components/NavbarProfile.js");
-/* harmony import */ var _ContacteProfile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./ContacteProfile */ "./resources/js/components/ContacteProfile.js");
+/* harmony import */ var _CoreAdmin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CoreAdmin */ "./resources/js/components/CoreAdmin.js");
+/* harmony import */ var _images_Add_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./images/Add.png */ "./resources/js/components/images/Add.png");
+/* harmony import */ var _images_Add_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_Add_png__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _images_check_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/check.png */ "./resources/js/components/images/check.png");
+/* harmony import */ var _images_check_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_images_check_png__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _images_homework_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/homework.png */ "./resources/js/components/images/homework.png");
+/* harmony import */ var _images_homework_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_images_homework_png__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _images_work_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/work.png */ "./resources/js/components/images/work.png");
+/* harmony import */ var _images_work_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_work_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_Consulter_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/Consulter.png */ "./resources/js/components/images/Consulter.png");
+/* harmony import */ var _images_Consulter_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_Consulter_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _NavbarAdmin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./NavbarAdmin */ "./resources/js/components/NavbarAdmin.js");
+/* harmony import */ var _ContacteProfile__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./ContacteProfile */ "./resources/js/components/ContacteProfile.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -92473,7 +92474,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var AdminPage =
 /*#__PURE__*/
 function (_Component) {
@@ -92490,7 +92490,7 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarProfile__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NavbarAdmin__WEBPACK_IMPORTED_MODULE_8__["default"], {
         name: this.props.name
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-5"
@@ -92501,7 +92501,7 @@ function (_Component) {
           console.log("Yuupi");
 
           if (document.getElementById('pageprin')) {
-            react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_CoreAdmin__WEBPACK_IMPORTED_MODULE_2__["default"], {
               name: _this.props.name
             }), document.getElementById('pageprin'));
           }
@@ -92514,13 +92514,13 @@ function (_Component) {
         className: "row "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6 "
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add A Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add Student"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2 "
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4 "
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _images_Add_png__WEBPACK_IMPORTED_MODULE_4___default.a
+        src: _images_Add_png__WEBPACK_IMPORTED_MODULE_3___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -92539,12 +92539,12 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _images_Consulter_png__WEBPACK_IMPORTED_MODULE_8___default.a
+        src: _images_Consulter_png__WEBPACK_IMPORTED_MODULE_7___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Consult Agenda"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Create Agendas"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row m-3 "
@@ -92556,13 +92556,13 @@ function (_Component) {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Review Courses"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Add Teacher"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _images_work_png__WEBPACK_IMPORTED_MODULE_7___default.a
+        src: _images_work_png__WEBPACK_IMPORTED_MODULE_6___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -92581,12 +92581,12 @@ function (_Component) {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _images_homework_png__WEBPACK_IMPORTED_MODULE_6___default.a
+        src: _images_check_png__WEBPACK_IMPORTED_MODULE_4___default.a
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Deposit Work"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "View all Teachers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row m-3"
@@ -92598,18 +92598,18 @@ function (_Component) {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Check TD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "View all students"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-4"
       }, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "imgresp",
-        src: _images_check_png__WEBPACK_IMPORTED_MODULE_5___default.a
+        src: _images_check_png__WEBPACK_IMPORTED_MODULE_4___default.a
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-1"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-2"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContacteProfile__WEBPACK_IMPORTED_MODULE_10__["default"], null));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ContacteProfile__WEBPACK_IMPORTED_MODULE_9__["default"], null));
     }
   }]);
 
@@ -93287,13 +93287,15 @@ function (_Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row up px-4 pt-5 pb-5"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "circles"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-6 "
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "display-5 tw animated shake"
-      }, "Gestion Scolarite"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "My School"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "decription animated shake"
-      }, "gestion de scolarite est une application web qui permetre aux etudiant ,enseignent et adminstrateur des ecloes de gerer leur ecole."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "MySchool is a virtual School manager via the internet. It assists all the functions any educational member want to do: from making agendas to sending feedbacks."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "btnlog",
         dusk: "Login-Button",
         className: "btnl  glow-on-hover animated swing "
@@ -93551,16 +93553,16 @@ if (document.getElementById('menu')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/NavbarProfile.js":
-/*!**************************************************!*\
-  !*** ./resources/js/components/NavbarProfile.js ***!
-  \**************************************************/
+/***/ "./resources/js/components/NavbarAdmin.js":
+/*!************************************************!*\
+  !*** ./resources/js/components/NavbarAdmin.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MenuProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavbarAdmin; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
@@ -93592,18 +93594,114 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var MenuProfile =
+var NavbarAdmin =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(MenuProfile, _Component);
+  _inherits(NavbarAdmin, _Component);
 
-  function MenuProfile() {
-    _classCallCheck(this, MenuProfile);
+  function NavbarAdmin() {
+    _classCallCheck(this, NavbarAdmin);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(MenuProfile).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(NavbarAdmin).apply(this, arguments));
   }
 
-  _createClass(MenuProfile, [{
+  _createClass(NavbarAdmin, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"], {
+        expand: "lg",
+        className: "navbargsprofile shadow p-3 mb-5 bg-white rounded "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Brand, {
+        href: "#home"
+      }, "MySchool"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Toggle, {
+        "aria-controls": "basic-navbar-nav"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"].Collapse, {
+        id: "basic-navbar-nav",
+        className: "justify-content-end"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Nav"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Nav"].Link, {
+        className: "pr-3 admin"
+      }, "Admin"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Nav"].Link, {
+        className: "pr-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas xyz fa-user-alt mr-2"
+      }), this.props.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Nav"].Link, {
+        dusk: "LogoutButton",
+        className: "nav-link",
+        href: "/",
+        onClick: function onClick() {
+          console.log('YYYYYYYYYYYYYYYYYYYYYYYYYAS !');
+          Cookies.remove('UserID');
+          Cookies.remove('Profile');
+          Cookies.remove('Username');
+          Cookies.remove('Token');
+        }
+      }, "Logout ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas xyz fa-sign-out-alt ml-2"
+      })))));
+    }
+  }]);
+
+  return NavbarAdmin;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+/***/ }),
+
+/***/ "./resources/js/components/NavbarProfile.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/NavbarProfile.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavbarProfile; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _welcompage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./welcompage */ "./resources/js/components/welcompage.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+var NavbarProfile =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NavbarProfile, _Component);
+
+  function NavbarProfile() {
+    _classCallCheck(this, NavbarProfile);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(NavbarProfile).apply(this, arguments));
+  }
+
+  _createClass(NavbarProfile, [{
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_4__["Navbar"], {
@@ -93637,7 +93735,7 @@ function (_Component) {
     }
   }]);
 
-  return MenuProfile;
+  return NavbarProfile;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -93711,8 +93809,8 @@ function (_Component) {
         src: this.props.ImgS,
         className: "img-fluid "
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-5 pt-5 "
-      }, " ", this.props.textG));
+        className: "col-sm-5 pt-5 cp mt-5"
+      }, " ", this.props.textG, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, "Some quick example text to build on the card title and make up the bulk of the card's content.")));
     }
   }]);
 

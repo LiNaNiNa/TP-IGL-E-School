@@ -31,7 +31,7 @@ class HomeController extends Controller
      * Check whether the UserName and the Password transmitted by the request, actually exist in our database. 
      * It return the profile ( Student, Admin or Teacher ) and the id of the User if it exists.
      *
-     * @param \Illuminate\Http\Request $request COntains the data inserted by the user 
+     * @param \Illuminate\Http\Request $request Contains the data inserted by the user 
      * @return \Illuminate\Http\Response the return code ( 200 in success or 202 in failure) and the data extracted from the table 'authens' if there is a match. 
      */
 

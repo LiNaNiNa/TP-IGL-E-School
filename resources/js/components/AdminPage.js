@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Card } from 'react-bootstrap';
+
 import Core from './CoreAdmin';
 
 import addicon from './images/Add.png';
@@ -8,15 +8,18 @@ import checkicon from './images/check.png';
 import homeicon from './images/homework.png';
 import workicon from './images/work.png';
 import consultericon from './images/Consulter.png';
-import NavbarProfile from './NavbarProfile';
+import NavbarAdmin from './NavbarAdmin';
 import ContacteProfile from './ContacteProfile';
 
 export default class AdminPage extends Component {
     render() {
         return (
             <div>
-            <NavbarProfile name={this.props.name}/>
+               
+            <NavbarAdmin name={this.props.name}/>
+            
             <div className="mt-5" >
+            
                 <div dusk="Option1Admin" className="row m-3 potm" onClick={() => {
                 console.log("Yuupi");
                 if (document.getElementById('pageprin')) {
@@ -24,12 +27,13 @@ export default class AdminPage extends Component {
                         <Core name={this.props.name} />, document.getElementById('pageprin'));
                 }
                 }}>
+                    
 
                     <div className="col-sm-2"></div>
                     <div  className="col-sm-7  " className=" shadow p-5 mb-5 rounded pmain  " >
                         <div className="row " >
                             <div className="col-sm-6 ">
-                                <h2>Add A Student</h2>
+                                <h2>Add Student</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                         the card's content.</b>
                             </div>
@@ -55,7 +59,7 @@ export default class AdminPage extends Component {
                             <div className="col-sm-4"> <img className="imgresp" src={consultericon} /></div>
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
-                                <h2>Consult Agenda</h2>
+                                <h2>Create Agendas</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                         the card's content.</b>
                             </div>
@@ -77,7 +81,7 @@ export default class AdminPage extends Component {
                     <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
                             <div className="col-sm-6">
-                                <h2>Review Courses</h2>
+                                <h2>Add Teacher</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                         the card's content.</b>
                             </div>
@@ -99,10 +103,10 @@ export default class AdminPage extends Component {
                     <div className="col-sm-2"></div>
                     <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain ">
                         <div className="row">
-                            <div className="col-sm-4"> <img className="imgresp" src={homeicon} /></div>
+                            <div className="col-sm-4"> <img className="imgresp" src={checkicon} /></div>
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
-                                <h2>Deposit Work</h2>
+                                <h2>View all Teachers</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                         the card's content.</b>
                             </div>
@@ -124,7 +128,7 @@ export default class AdminPage extends Component {
                     <div className="col-sm-7 " className=" shadow p-5 mb-5 bg-white rounded pmain " >
                         <div className="row">
                             <div className="col-sm-6">
-                                <h2>Check TD</h2>
+                                <h2>View all students</h2>
                                 <b>Some quick example text to build on the card title and make up the bulk of
                              the card's content.</b>
                             </div>
